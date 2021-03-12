@@ -1,6 +1,7 @@
 // types
 interface Component {
   component: string
+  class?: string[] | string
 }
 
 interface BannerDescriptionComponent extends Component {
@@ -16,7 +17,8 @@ export const BANNER_CONTENT: (Component | BannerDescriptionComponent)[] = [
     description: ['Joyfully invite you to wedding celebration'],
   },
   {
-    component: 'BannerLine',
+    component: 'BasicLine',
+    class: ['my-10'],
   },
   {
     component: 'BannerDescription',

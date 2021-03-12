@@ -1,5 +1,5 @@
 <template>
-  <div class="my-10 w-px h-10 bg-gray-500"></div>
+  <div class="w-px h-10 bg-gray-500"></div>
 </template>
 
 <script lang="ts">
@@ -13,5 +13,5 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component
-export default class BannerLine extends Vue {}
+export default class BasicLine extends Vue {}
 </script>
