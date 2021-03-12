@@ -14,7 +14,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/styles/color.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -38,6 +38,26 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://firebase.nuxtjs.org
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyCvYugu3OInby9aby4-EvHTvmjPmErFnb4',
+          authDomain: 'huei-bei-wedding.firebaseapp.com',
+          databaseURL: 'https://huei-bei-wedding-default-rtdb.firebaseio.com',
+          projectId: 'huei-bei-wedding',
+          storageBucket: 'huei-bei-wedding.appspot.com',
+          messagingSenderId: '5978109325',
+          appId: '1:5978109325:web:de481dfc689b4a9e7779c4',
+          measurementId: 'G-D5CK7VCDJM',
+        },
+        services: {
+          auth: true, // Just as example. Can be any other service.
+          storage: true,
+        },
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
