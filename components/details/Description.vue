@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex">
+  <div class="w-full flex font-bold leading-10">
     <p class="details-description-time">{{ time }}</p>
     <p>{{ description }}</p>
   </div>
