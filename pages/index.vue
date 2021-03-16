@@ -4,6 +4,7 @@
     <Story :list="imageList" />
     <Details />
     <Map />
+    <Event />
   </main>
 </template>
 

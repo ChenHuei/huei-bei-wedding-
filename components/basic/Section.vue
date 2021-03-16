@@ -38,11 +38,9 @@ section {
     background-color: var(--secondary);
   }
 
-  .banner {
-    &-title,
-    &-description {
-      color: var(--primary);
-    }
+  h1,
+  h4 {
+    color: var(--primary);
   }
 }
 </style>
