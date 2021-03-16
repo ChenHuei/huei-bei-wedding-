@@ -6,6 +6,7 @@
       <DetailsLaurel :direction="Direction.RIGHT" />
       <DetailsDescription v-for="item in list" :key="item.time" v-bind="item" />
     </div>
+    <DetailsCalendar v-bind="calendar" />
   </BasicSection>
 </template>
 
@@ -20,7 +21,11 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 // constants
-import { DETAILS_INFO, DETAILS_CONTENT } from '@/constants/details'
+import {
+  DETAILS_INFO,
+  DETAILS_CONTENT,
+  DETAILS_CALENDAR,
+} from '@/constants/details'
 
 // types
 import { Direction } from '@/types'
@@ -31,6 +36,7 @@ import { Direction } from '@/types'
       Direction,
       information: DETAILS_INFO,
       list: DETAILS_CONTENT,
+      calendar: DETAILS_CALENDAR,
     }
   },
 })
