@@ -19,10 +19,10 @@
 
 import { Component, Vue } from 'vue-property-decorator'
 
-// Constants
+// constants
 import { DETAILS_INFO, DETAILS_CONTENT } from '@/constants/details'
 
-// Types
+// types
 import { Direction } from '@/types'
 
 @Component({

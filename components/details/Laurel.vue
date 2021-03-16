@@ -17,10 +17,10 @@
 
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
-// Types
+// types
 import { Direction } from '@/types'
 
-// Images
+// images
 import LaurelSVG from '@/assets/images/Laurel.svg'
 
 @Component({
