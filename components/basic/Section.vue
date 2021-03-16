@@ -2,8 +2,8 @@
   <section class="w-full h-auto flex justify-center p-20 pb-32">
     <div class="w-full max-w-screen-lg flex flex-col items-center">
       <div class="mb-20 text-center">
-        <h1 class="text-3xl font-bold">{{ title }}</h1>
-        <h4 v-if="description" class="my-5 text-1xl">
+        <h1 class="banner-title text-3xl font-bold">{{ title }}</h1>
+        <h4 v-if="description" class="banner-description my-5 text-1xl">
           {{ description }}
         </h4>
       </div>
@@ -38,9 +38,11 @@ section {
     background-color: var(--secondary);
   }
 
-  h1,
-  h4 {
-    color: var(--primary);
+  .banner {
+    &-title,
+    &-description {
+      color: var(--primary);
+    }
   }
 }
 </style>
