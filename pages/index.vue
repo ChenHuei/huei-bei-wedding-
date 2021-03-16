@@ -3,6 +3,7 @@
     <Banner />
     <Story :list="imageList" />
     <Details />
+    <Map />
   </main>
 </template>
 
