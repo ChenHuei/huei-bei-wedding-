@@ -2,7 +2,7 @@
   <transition name="fade">
     <div
       v-show="isDisplay"
-      class="back-top fixed w-12 h-12 flex justify-center items-center bg-primary rounded-full cursor-pointer duration-500"
+      class="back-top fixed w-12 h-12 flex justify-center items-center bg-primary rounded-full transform rotate-180 cursor-pointer duration-500"
       @click="scrollToTop"
     >
       <ArrowDownSvg class="w-6 h-6" />
@@ -52,7 +52,6 @@ export default class BackTop extends Vue {
 .back-top {
   right: 20px;
   bottom: 20px;
-  transform: rotate(180deg);
 
   &:hover {
     opacity: 0.6;
