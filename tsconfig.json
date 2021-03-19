@@ -27,6 +27,7 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@nuxtjs/firebase",
+      "@nuxtjs/color-mode",
       "@types/node"
     ]
   },
