@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-auto flex justify-center p-20 pb-32">
+  <section class="w-full h-auto flex justify-center p-20 pb-32 bg-white">
     <div class="w-full max-w-screen-lg flex flex-col items-center">
       <div class="mb-20 text-center">
         <h1 class="text-3xl text-primary font-bold">
@@ -36,7 +36,7 @@ export default class BasicSection extends Vue {
 
 <style lang="scss" scoped>
 section {
-  &:nth-child(2n + 1) {
+  &:nth-of-type(2n + 1) {
     background-color: var(--secondary);
   }
 }
