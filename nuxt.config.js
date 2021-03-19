@@ -76,4 +76,7 @@ export default {
   stylelint: {
     fix: true,
   },
+  tailwindcss: {
+    configPath: '~/tailwind.config.ts',
+  },
 }

@@ -1,12 +1,14 @@
 <template>
   <div class="w-3/4 mb-4">
-    <h1 class="map-traffic-cateogry mb-2 text-2xl">{{ category }}</h1>
+    <h1 class="mb-2 text-2xl text-primary">
+      {{ category }}
+    </h1>
     <div
       v-for="(item, index) in content"
       :key="index"
       class="mb-2 leading-8 text-gray-500"
     >
-      <h4 v-if="item.title" class="map-traffic-item-title mb-1">
+      <h4 v-if="item.title" class="mb-1 text-primary">
         {{ item.title }}
       </h4>
       <p v-for="element in item.description" :key="element">
@@ -35,12 +37,3 @@ export default class MapTraffic extends Vue {
   content!: { title: string; description: string[] }[]
 }
 </script>
-
-<style lang="scss" scoped>
-.map-traffic {
-  &-cateogry,
-  &-item-title {
-    color: var(--primary);
-  }
-}
-</style>

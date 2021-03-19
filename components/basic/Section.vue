@@ -2,8 +2,10 @@
   <section class="w-full h-auto flex justify-center p-20 pb-32">
     <div class="w-full max-w-screen-lg flex flex-col items-center">
       <div class="mb-20 text-center">
-        <h1 class="banner-title text-3xl font-bold">{{ title }}</h1>
-        <h4 v-if="description" class="banner-description my-5 text-1xl">
+        <h1 class="text-3xl text-primary font-bold">
+          {{ title }}
+        </h1>
+        <h4 v-if="description" class="my-5 text-1xl text-primary">
           {{ description }}
         </h4>
       </div>
@@ -36,11 +38,6 @@ export default class BasicSection extends Vue {
 section {
   &:nth-child(2n + 1) {
     background-color: var(--secondary);
-  }
-
-  h1,
-  h4 {
-    color: var(--primary);
   }
 }
 </style>

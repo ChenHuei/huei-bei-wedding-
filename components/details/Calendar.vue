@@ -1,5 +1,9 @@
 <template>
-  <a class="details-calendar mt-16 text-lg" :href="link" target="_blank">
+  <a
+    class="details-calendar mt-16 text-lg text-primary"
+    :href="link"
+    target="_blank"
+  >
     {{ text }}
   </a>
 </template>
@@ -27,6 +31,5 @@ export default class DetailsCalendar extends Vue {
 <style lang="scss" scoped>
 .details-calendar {
   text-decoration: underline;
-  color: var(--primary);
 }
 </style>

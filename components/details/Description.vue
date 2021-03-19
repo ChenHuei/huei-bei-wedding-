@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex font-bold leading-10">
-    <p class="details-description-time">{{ time }}</p>
-    <p>{{ description }}</p>
+    <p class="details-description-time text-primary">{{ time }}</p>
+    <p class="text-primary">{{ description }}</p>
   </div>
 </template>
 
@@ -29,8 +29,5 @@ export default class DetailsDescription extends Vue {
 .details-description-time {
   transform: translateX(-200%);
   margin-left: 50%;
-}
-p {
-  color: var(--primary);
 }
 </style>
