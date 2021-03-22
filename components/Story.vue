@@ -1,10 +1,12 @@
 <template>
   <BasicSection v-bind="information">
-    <div class="w-full flex justify-between items-center">
+    <div
+      class="w-full flex flex-col justify-between items-center -mb-10 lg:flex-row lg:mb-0"
+    >
       <div
         v-for="item in list"
         :key="item"
-        class="w-1/4 h-64 bg-cover bg-no-repeat bg-center"
+        class="w-1/2 h-64 mb-10 bg-cover bg-no-repeat bg-center md:w-1/3 lg:w-1/4 lg:mb-0"
         :style="{ backgroundImage: `url(${item})` }"
       ></div>
     </div>

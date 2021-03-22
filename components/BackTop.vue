@@ -2,10 +2,10 @@
   <transition name="fade">
     <div
       v-show="isDisplay"
-      class="back-top fixed w-12 h-12 flex justify-center items-center bg-primary rounded-full transform rotate-180 cursor-pointer duration-500"
+      class="back-top fixed w-8 h-8 flex justify-center items-center bg-primary rounded-full transform rotate-180 cursor-pointer duration-500 md:w-12 md:h-12"
       @click="scrollToTop"
     >
-      <ArrowDownSvg class="w-6 h-6" />
+      <ArrowDownSvg class="w-4 h-4 md:w-6 md:h-6" />
     </div>
   </transition>
 </template>

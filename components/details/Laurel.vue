@@ -1,10 +1,8 @@
 <template>
-  <img
-    class="details-laurel absolute"
-    alt="laurel image"
-    :class="classHandler"
-    :src="LaurelSVG"
-  />
+  <picture class="details-laurel absolute" :class="classHandler">
+    <source :srcset="LaurelLGSVG" media="(min-width: 1024px)" />
+    <img alt="laurel image" :src="LaurelSVG" />
+  </picture>
 </template>
 
 <script lang="ts">
@@ -22,11 +20,13 @@ import { Direction } from '@/types'
 
 // images
 import LaurelSVG from '@/assets/images/Laurel.svg'
+import LaurelLGSVG from '@/assets/images/Laurel-LG.svg'
 
 @Component({
   data() {
     return {
       LaurelSVG,
+      LaurelLGSVG,
     }
   },
 })
@@ -45,12 +45,24 @@ export default class DetailsLaurel extends Vue {
 <style lang="scss" scoped>
 .details-laurel {
   &.left {
-    left: 25%;
+    left: 5%;
   }
 
   &.right {
-    right: 25%;
+    right: 5%;
     transform: rotateY(180deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .details-laurel {
+    &.left {
+      left: 25%;
+    }
+
+    &.right {
+      right: 25%;
+    }
   }
 }
 </style>

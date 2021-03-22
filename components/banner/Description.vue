@@ -1,7 +1,13 @@
 <template>
   <div class="banner-description flex flex-col justify-center items-center">
-    <h1 class="mb-2 text-3xl text-blue-700 font-bold">{{ title }}</h1>
-    <span v-for="item in description" :key="item" class="text-gray-500">
+    <h1 class="mb-2 font-bold text-2xl text-blue-700 text-center lg:text-3xl">
+      {{ title }}
+    </h1>
+    <span
+      v-for="item in description"
+      :key="item"
+      class="text-sm text-gray-500 text-center lg:text-base"
+    >
       {{ item }}
     </span>
   </div>

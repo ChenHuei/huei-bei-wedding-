@@ -1,6 +1,6 @@
 <template>
   <div class="w-3/4 mb-4">
-    <h1 class="mb-2 text-2xl text-primary">
+    <h1 class="mb-2 text-xl text-primary lg:text-2xl">
       {{ category }}
     </h1>
     <div

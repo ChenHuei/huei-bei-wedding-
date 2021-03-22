@@ -4,7 +4,7 @@
     :style="{ backgroundImage: `url(${bannerImage})` }"
   >
     <div
-      class="banner-content absolute w-1/2 h-auto p-20 flex flex-col justify-center items-center bg-white"
+      class="banner-content absolute w-3/4 h-auto p-16 flex flex-col justify-center items-center bg-white lg:w-1/2 md:p-20"
     >
       <component
         :is="item.component"

@@ -1,8 +1,10 @@
 <template>
-  <section class="w-full h-auto flex justify-center p-20 pb-32 bg-white">
+  <section
+    class="w-full h-auto p-12 pb-24 flex justify-center bg-white lg:p-16 lg:pb-32"
+  >
     <div class="w-full max-w-screen-lg flex flex-col items-center">
-      <div class="mb-20 text-center">
-        <h1 class="text-3xl text-primary font-bold">
+      <div class="mb-12 text-center md:mb-16 lg:mb-20">
+        <h1 class="text-3xl text-primary font-bold md:text-4xl">
           {{ title }}
         </h1>
         <h4 v-if="description" class="my-5 text-1xl text-primary">

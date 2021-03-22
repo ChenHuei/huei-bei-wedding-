@@ -1,7 +1,9 @@
 <template>
   <div class="w-full flex font-bold leading-10">
-    <p class="details-description-time text-primary">{{ time }}</p>
-    <p class="text-primary">{{ description }}</p>
+    <p class="details-description-time text-lg text-primary lg:text-xl">
+      {{ time }}
+    </p>
+    <p class="text-lg text-primary">{{ description }}</p>
   </div>
 </template>
 
