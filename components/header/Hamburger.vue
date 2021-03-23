@@ -1,0 +1,76 @@
+<template>
+  <div
+    class="header-hamburger relative transition-all duration-500 ease-in-out cursor-pointer"
+    @click="toggleOpenHandler"
+  >
+    <p
+      v-for="n in 3"
+      :key="n"
+      class="header-hamburger-line absolute w-full bg-primary rounded transition-all duration-200 ease-in-out"
+      :class="{ open: isOpen }"
+    ></p>
+  </div>
+</template>
+
+<script lang="ts">
+/**
+ *  @author leo.chen 2021-03-23
+ *  @description description
+ *
+ *  @summary summary
+ */
+
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class HeaderHamburger extends Vue {
+  isOpen = false
+
+  toggleOpenHandler(): void {
+    this.isOpen = !this.isOpen
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.header-hamburger {
+  width: 60px;
+  height: 45px;
+
+  &-line {
+    left: 0;
+    height: 9px;
+    transform-origin: left center;
+    opacity: 1;
+
+    &:nth-child(1) {
+      top: 0;
+
+      &.open {
+        top: -3px;
+        left: 8px;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:nth-child(2) {
+      top: 18px;
+
+      &.open {
+        width: 0%;
+        opacity: 0;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 36px;
+
+      &.open {
+        top: 39px;
+        left: 8px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+</style>
