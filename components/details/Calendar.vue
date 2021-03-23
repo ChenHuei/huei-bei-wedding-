@@ -1,5 +1,9 @@
 <template>
-  <a class="mt-16 text-lg text-primary underline" :href="link" target="_blank">
+  <a
+    class="mt-16 text-lg text-primary text-center underline"
+    target="_blank"
+    :href="link"
+  >
     {{ text }}
   </a>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="banner-description flex flex-col justify-center items-center">
-    <h1 class="mb-2 font-bold text-2xl text-blue-700 text-center lg:text-3xl">
+    <h1 class="mb-2 font-bold text-3xl text-blue-700 text-center lg:text-4xl">
       {{ title }}
     </h1>
     <span
