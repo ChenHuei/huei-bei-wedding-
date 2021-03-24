@@ -2,10 +2,10 @@
   <main>
     <Header :title="title" :list="menuList" />
     <Banner />
-    <Story ref="story" :list="imageList" />
-    <Details ref="details" />
-    <Map ref="map" />
-    <Event ref="event" />
+    <Story :ref="SectionNameNouns.story" :list="imageList" />
+    <Details :ref="SectionNameNouns.details" />
+    <Map :ref="SectionNameNouns.map" />
+    <Event :ref="SectionNameNouns.event" />
     <BackTop :current="currentYOffset" :inner-height="innerHeight" />
   </main>
 </template>
@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { debounce } from 'vue-debounce'
 
 // constants
-import { PROJECT_TITLE } from '@/constants'
+import { PROJECT_TITLE, SectionNameNouns } from '@/constants'
 
 // types
 import { MenuItem } from '@/types'
@@ -24,6 +24,7 @@ import { MenuItem } from '@/types'
   data() {
     return {
       title: PROJECT_TITLE,
+      SectionNameNouns,
     }
   },
 })
@@ -34,10 +35,10 @@ export default class Index extends Vue {
   imageList: string[] = []
 
   menuList: MenuItem[] = [
-    { title: 'story', offsetTop: 0 },
-    { title: 'details', offsetTop: 0 },
-    { title: 'map', offsetTop: 0 },
-    { title: 'event', offsetTop: 0 },
+    { title: SectionNameNouns.story, offsetTop: 0 },
+    { title: SectionNameNouns.details, offsetTop: 0 },
+    { title: SectionNameNouns.map, offsetTop: 0 },
+    { title: SectionNameNouns.event, offsetTop: 0 },
   ]
 
   mounted(): void {
