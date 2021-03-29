@@ -3,13 +3,16 @@
     class="w-full h-auto p-12 pb-24 flex justify-center bg-white lg:p-16 lg:pb-32"
   >
     <div class="w-full max-w-screen-lg flex flex-col items-center">
-      <div class="mb-12 text-center md:mb-16 lg:mb-20">
-        <h1 class="text-3xl text-primary font-bold md:text-4xl">
+      <div
+        ref="outer"
+        class="outer mb-16 border-b border-primary text-center overflow-hidden md:mb-16 lg:mb-20"
+      >
+        <h1
+          ref="inner"
+          class="relative text-3xl text-primary font-bold md:text-4xl"
+        >
           {{ title }}
         </h1>
-        <h4 v-if="description" class="my-5 text-1xl text-primary">
-          {{ description }}
-        </h4>
       </div>
       <slot></slot>
     </div>
@@ -25,14 +28,37 @@
  */
 
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import { gsap } from 'gsap'
 
 @Component
 export default class BasicSection extends Vue {
   @Prop()
   title!: string
 
-  @Prop()
-  description: string | undefined
+  mounted(): void {
+    if (process.client) {
+      const ScrollMagic = require('scrollmagic')
+
+      const controller = new ScrollMagic.Controller()
+
+      new ScrollMagic.Scene({
+        triggerElement: this.$el,
+        offset: 0,
+        triggerHook: 0.9,
+      })
+        .on('enter', () => {
+          gsap.from(this.$refs.outer, {
+            duration: 0.25,
+            scaleX: 0,
+          })
+          gsap.from(this.$refs.inner, {
+            duration: 0.65,
+            yPercent: 100,
+          })
+        })
+        .addTo(controller)
+    }
+  }
 }
 </script>
 

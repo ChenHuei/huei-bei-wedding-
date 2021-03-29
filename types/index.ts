@@ -5,7 +5,6 @@ export enum Direction {
 
 export interface BasicSection {
   title: string
-  description: string
 }
 
 export interface MenuItem {

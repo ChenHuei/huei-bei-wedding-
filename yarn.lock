@@ -2103,6 +2103,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/scrollmagic@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/scrollmagic/-/scrollmagic-2.0.1.tgz#b04c5c59b3071c42bedadf3375f9dcb36990b0d6"
+  integrity sha512-28SKWD1VFs48coDq31mo1ixkN9cStm2krGP3jIxx50loWPfz2Ub0OTcalWdXGBQfLmZ68bjQxd6CvLI6O8foag==
+
 "@types/serve-static@*", "@types/serve-static@^1.13.9":
   version "1.13.9"
   resolved "https://registry.yarnpkg.com/@types/serve-static/-/serve-static-1.13.9.tgz#aacf28a85a05ee29a11fb7c3ead935ac56f33e4e"
@@ -10133,6 +10138,11 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+scrollmagic@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.8.tgz#e0d7aff804c393c022fdc0c566f1edce3b4e9ed7"
+  integrity sha512-UYXEGBPVLziovXl3FjHGkY9c4UXKUKopIdXwWR2JapWxCo0U345wYegi7rcsv5vHf/ktc1bSNWy4QRFiV+Yccw==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

@@ -2,7 +2,6 @@ import { BasicSection } from '~/types'
 
 export const MAP_INFO: BasicSection = {
   title: 'Map',
-  description: '',
 }
 
 export const MAP_LOCATION: string[] = [
