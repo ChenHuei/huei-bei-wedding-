@@ -44,7 +44,7 @@ export default class BasicSection extends Vue {
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         offset: 0,
-        triggerHook: 0.9,
+        triggerHook: 0.99,
       })
         .on('enter', () => {
           gsap.from(this.$refs.outer, {
