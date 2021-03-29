@@ -1,0 +1,98 @@
+<template>
+  <div class="video relative bg-black">
+    <video class="w-screen h-screen" autoplay controls muted loop>
+      <source
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { gsap } from 'gsap'
+
+// constants
+import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
+
+// types
+interface Message {
+  id: number
+  message: string
+}
+
+@Component({
+  layout: 'empty',
+})
+export default class App extends Vue {
+  mounted(): void {
+    const eventSource = new EventSource('http://localhost:1234/messages')
+
+    eventSource.onmessage = (e) => {
+      const messages: string[] = JSON.parse(e.data).messages
+
+      messages.forEach((message: string) => {
+        this.createText({
+          id: new Date().getTime(),
+          message,
+        })
+      })
+    }
+  }
+
+  async createText(item: Message): Promise<void> {
+    const { clientWidth, clientHeight } = document.documentElement
+    const textEl = document.createElement('div')
+
+    textEl.id = `text${item.id}`
+    textEl.appendChild(document.createTextNode(item.message))
+
+    document.body.appendChild(textEl)
+
+    textEl.style.position = 'fixed'
+    textEl.style.top = `${
+      Math.random() * (clientHeight - textEl.clientHeight)
+    }px`
+    textEl.style.left = `${clientWidth}px`
+
+    textEl.style.fontSize = `${this.getRandomSize()}px`
+    textEl.style.fontWeight = '900'
+    textEl.style.whiteSpace = 'nowrap'
+    textEl.style.color = this.getRandomColor()
+
+    await gsap.to(`#${textEl.id}`, {
+      duration: this.getRandomSpeed(),
+      x: -1 * (clientWidth + textEl.clientWidth),
+    })
+
+    textEl?.parentNode?.removeChild(textEl)
+  }
+
+  getRandomColor() {
+    const index = this.getRandomInteger(COLOR_LIST.length - 1)
+
+    return COLOR_LIST[index]
+  }
+
+  getRandomSize() {
+    return SIZES_BASE + this.getRandomInteger(SIZES_BASE)
+  }
+
+  getRandomSpeed() {
+    return SPEED_BASE + this.getRandomInteger(SPEED_BASE) / 2
+  }
+
+  getRandomInteger(range: number) {
+    return Math.round(Math.random() * range)
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.video {
+  div {
+    transition: 0.5s;
+  }
+}
+</style>
