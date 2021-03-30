@@ -6,6 +6,9 @@ module.exports = {
   purge: [],
   theme: {
     darkSelector: '.dark-mode',
+    fontFamily: {
+      custom: 'Dancing Script',
+    },
     extend: {
       colors: {
         primary: '#b09259',
