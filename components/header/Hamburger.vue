@@ -34,12 +34,12 @@ export default class HeaderHamburger extends Vue {
 
 <style lang="scss" scoped>
 .header-hamburger {
-  width: 60px;
-  height: 45px;
+  width: 45px;
+  height: 30px;
 
   &-line {
     left: 0;
-    height: 9px;
+    height: 6px;
     transform-origin: left center;
     opacity: 1;
 
@@ -54,7 +54,7 @@ export default class HeaderHamburger extends Vue {
     }
 
     &:nth-child(2) {
-      top: 18px;
+      top: 12px;
 
       &.open {
         width: 0%;
@@ -63,10 +63,10 @@ export default class HeaderHamburger extends Vue {
     }
 
     &:nth-child(3) {
-      top: 36px;
+      top: 24px;
 
       &.open {
-        top: 39px;
+        top: 29px;
         left: 8px;
         transform: rotate(-45deg);
       }
