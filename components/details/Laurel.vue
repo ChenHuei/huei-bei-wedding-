@@ -1,5 +1,5 @@
 <template>
-  <picture class="details-laurel absolute" :class="classHandler">
+  <picture class="details-laurel absolute" :class="getClasses">
     <source :srcset="LaurelLGSVG" media="(min-width: 1024px)" />
     <img alt="laurel image" :src="LaurelSVG" />
   </picture>
@@ -34,7 +34,7 @@ export default class DetailsLaurel extends Vue {
   @Prop()
   direction!: Direction
 
-  get classHandler() {
+  get getClasses() {
     return {
       [this.direction]: true,
     }
