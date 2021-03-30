@@ -3,11 +3,21 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+    './components/**/*.{vue,js}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+  ],
   theme: {
     darkSelector: '.dark-mode',
     fontFamily: {
       custom: 'Dancing Script',
+    },
+    inset: {
+      0: 0,
+      full: '100%',
     },
     extend: {
       colors: {

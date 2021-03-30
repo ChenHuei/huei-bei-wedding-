@@ -1,6 +1,11 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  // Server
+  // server: {
+  //   port: 8000, // default: 3000
+  //   host: '0.0.0.0', // default: localhost
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -92,6 +97,7 @@ export default {
   },
   tailwindcss: {
     configPath: '~/tailwind.config.ts',
+    cssPath: '~/assets/styles/tailwind.css',
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
