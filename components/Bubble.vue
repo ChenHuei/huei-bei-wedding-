@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bubble fixed bg-primary rounded-full opacity-70 z-10"
+    class="bubble fixed bg-primary rounded-full opacity-70 z-10 pointer-events-none"
     :style="getStyles"
   ></div>
 </template>
