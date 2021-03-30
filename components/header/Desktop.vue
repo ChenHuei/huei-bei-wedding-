@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full max-w-screen-lg justify-between items-center mx-auto">
+  <div
+    class="hidden w-full max-w-screen-lg justify-between items-center mx-auto md:flex"
+  >
     <div class="w-auto text-primary uppercase cursor-pointer" @click="scroll">
       {{ title }}
     </div>

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="header-hamburger relative transition-all duration-500 ease-in-out cursor-pointer"
-    @click="toggleOpenHandler"
+    class="header-hamburger transition-all duration-500 ease-in-out cursor-pointer"
+    @click="onValueChanged"
   >
     <p
       v-for="n in 3"
       :key="n"
       class="header-hamburger-line absolute w-full bg-primary rounded transition-all duration-200 ease-in-out"
-      :class="{ open: isOpen }"
+      :class="{ open: value }"
     ></p>
   </div>
 </template>
@@ -20,14 +20,16 @@
  *  @summary summary
  */
 
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class HeaderHamburger extends Vue {
-  isOpen = false
+  @Prop()
+  value!: boolean
 
-  toggleOpenHandler(): void {
-    this.isOpen = !this.isOpen
+  @Emit('input')
+  onValueChanged(): boolean {
+    return !this.value
   }
 }
 </script>
