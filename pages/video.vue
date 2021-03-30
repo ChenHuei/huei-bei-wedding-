@@ -27,7 +27,9 @@ interface Message {
 })
 export default class App extends Vue {
   mounted(): void {
-    const eventSource = new EventSource('http://localhost:1234/messages')
+    const eventSource = new EventSource(
+      'https://wedding-line-bot.herokuapp.com/messages'
+    )
 
     eventSource.onmessage = (e) => {
       const messages: string[] = JSON.parse(e.data).messages
