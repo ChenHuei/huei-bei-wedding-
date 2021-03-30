@@ -9,7 +9,7 @@
       >
         <h1
           ref="inner"
-          class="relative text-3xl text-primary font-bold md:text-4xl"
+          class="relative text-3xl text-primary font-bold font-custom md:text-4xl"
         >
           {{ title }}
         </h1>

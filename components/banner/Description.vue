@@ -1,6 +1,9 @@
 <template>
   <div class="banner-description flex flex-col justify-center items-center">
-    <h1 class="mb-2 font-bold text-3xl text-blue-700 text-center lg:text-4xl">
+    <h1
+      class="mb-2 font-bold font-custom text-3xl text-blue-700 text-center lg:text-4xl"
+      :class="titleClasses"
+    >
       {{ title }}
     </h1>
     <span
@@ -30,6 +33,9 @@ export default class BannerDescription extends Vue {
 
   @Prop()
   description!: string[]
+
+  @Prop()
+  titleClasses!: string[]
 }
 </script>
 
