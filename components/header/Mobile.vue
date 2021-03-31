@@ -10,7 +10,7 @@
         v-for="item in list"
         :key="item.title"
         class="py-4 my-4 text-primary text-center uppercase cursor-pointer"
-        @click="scroll(item.offset)"
+        @click="scroll(item.offsetTop)"
       >
         {{ item.title }}
       </div>
