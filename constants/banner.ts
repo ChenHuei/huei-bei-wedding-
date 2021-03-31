@@ -24,7 +24,7 @@ export const BANNER_CONTENT: (Component | BannerDescriptionComponent)[] = [
   },
   {
     component: 'BannerDescription',
-    title: 'December, 11, 2021',
+    title: 'Sat, December, 11th, 2021',
     description: [
       'At 晶宴會館 - 民生館',
       '(台北市中山區民生東路三段 8 號 1 樓)',
