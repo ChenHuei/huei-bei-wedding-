@@ -3,8 +3,8 @@
     class="header fixed left-full w-full h-screen transition-all duration-200 ease-in-out z-20 md:left-0 md:h-auto md:p-4 md:z-10"
     :class="{ open: isOpenMobileMenu }"
   >
-    <HeaderDesktop :title="title" :list="list" @scroll="scrollTo" />
-    <HeaderMobile :title="title" :list="list" @scroll="closeAndScroll" />
+    <HeaderDesktop :title="title" :list="list" @scroll="scroll" />
+    <HeaderMobile :title="title" :list="list" @scroll="scroll" />
     <HeaderHamburger
       v-model="isOpenMobileMenu"
       class="header-hamburger fixed z-30 md:hidden"
@@ -20,10 +20,10 @@
  *  @summary summary
  */
 
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
-// types
-import { MenuItem } from '@/types'
+// constants
+import { SectionNameNouns } from '~/constants'
 
 @Component
 export default class Header extends Vue {
@@ -31,28 +31,16 @@ export default class Header extends Vue {
   title!: string
 
   @Prop()
-  list!: MenuItem[]
+  list!: SectionNameNouns[]
+
+  @Emit()
+  scroll(target: SectionNameNouns): SectionNameNouns {
+    this.isOpenMobileMenu = false
+
+    return target
+  }
 
   isOpenMobileMenu = false
-
-  // methods
-
-  // scrollIntoView
-  scrollTo(top: number): void {
-    window.scrollTo({
-      top,
-      behavior: 'smooth',
-    })
-  }
-
-  closeAndScroll(top: number): void {
-    this.closeMobileMenu()
-    this.scrollTo(top)
-  }
-
-  closeMobileMenu(): void {
-    this.isOpenMobileMenu = false
-  }
 }
 </script>
 

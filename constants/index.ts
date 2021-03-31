@@ -3,6 +3,7 @@ export const PROJECT_TITLE = 'HUEI & BEI'
 // enum
 
 export enum SectionNameNouns {
+  banner = 'banner',
   story = 'story',
   details = 'details',
   map = 'map',

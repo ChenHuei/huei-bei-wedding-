@@ -8,11 +8,11 @@
     <div class="w-auto flex flex-col flex-1 justify-center">
       <div
         v-for="item in list"
-        :key="item.title"
+        :key="item"
         class="py-4 my-4 text-primary text-center uppercase cursor-pointer"
-        @click="scroll(item.offsetTop)"
+        @click="scroll(item)"
       >
-        {{ item.title }}
+        {{ item }}
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@
 
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
-// types
-import { MenuItem } from '@/types'
+// constants
+import { SectionNameNouns } from '~/constants'
 
 @Component
 export default class HeaderMobile extends Vue {
@@ -37,11 +37,11 @@ export default class HeaderMobile extends Vue {
   title!: string
 
   @Prop()
-  list!: MenuItem[]
+  list!: SectionNameNouns[]
 
   @Emit()
-  scroll(top: number = 0): number {
-    return top
+  scroll(target: SectionNameNouns): SectionNameNouns {
+    return target
   }
 }
 </script>

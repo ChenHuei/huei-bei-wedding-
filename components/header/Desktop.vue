@@ -2,17 +2,20 @@
   <div
     class="hidden w-full max-w-screen-lg justify-between items-center mx-auto md:flex"
   >
-    <div class="w-auto text-primary uppercase cursor-pointer" @click="scroll">
+    <div
+      class="w-auto text-primary uppercase cursor-pointer"
+      @click="() => scroll(SectionNameNouns.banner)"
+    >
       {{ title }}
     </div>
     <div class="w-auto flex -mr-4">
       <div
         v-for="item in list"
-        :key="item.title"
+        :key="item"
         class="mx-4 text-primary uppercase cursor-pointer"
-        @click="scroll(item.offsetTop)"
+        @click="scroll(item)"
       >
-        {{ item.title }}
+        {{ item }}
       </div>
     </div>
   </div>
@@ -28,20 +31,26 @@
 
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
-// types
-import { MenuItem } from '@/types'
+// constants
+import { SectionNameNouns } from '~/constants'
 
-@Component
+@Component({
+  data() {
+    return {
+      SectionNameNouns,
+    }
+  },
+})
 export default class HeaderDesktop extends Vue {
   @Prop()
   title!: string
 
   @Prop()
-  list!: MenuItem[]
+  list!: SectionNameNouns[]
 
   @Emit()
-  scroll(top: number = 0): number {
-    return top
+  scroll(target: SectionNameNouns): SectionNameNouns {
+    return target
   }
 }
 </script>

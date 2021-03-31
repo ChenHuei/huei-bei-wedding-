@@ -3,7 +3,7 @@
     <div
       v-show="isDisplay"
       class="back-top fixed w-8 h-8 flex justify-center items-center bg-primary rounded-full transform rotate-180 cursor-pointer duration-500 md:w-12 md:h-12"
-      @click="scrollToTop"
+      @click="() => scroll(SectionNameNouns.banner)"
     >
       <ArrowDownSvg class="w-4 h-4 md:w-6 md:h-6" />
     </div>
@@ -18,14 +18,18 @@
  *  @summary summary
  */
 
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
 // images
 import ArrowDownSvg from '@/assets/images/ArrowDown.svg?inline'
+import { SectionNameNouns } from '~/constants'
 
 @Component({
-  components: {
-    ArrowDownSvg,
+  components: { ArrowDownSvg },
+  data() {
+    return {
+      SectionNameNouns,
+    }
   },
 })
 export default class BackTop extends Vue {
@@ -35,15 +39,13 @@ export default class BackTop extends Vue {
   @Prop()
   innerHeight!: number
 
-  get isDisplay(): boolean {
-    return this.current > this.innerHeight / 2
+  @Emit()
+  scroll(target: SectionNameNouns): SectionNameNouns {
+    return target
   }
 
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
+  get isDisplay(): boolean {
+    return this.current > this.innerHeight / 2
   }
 }
 </script>

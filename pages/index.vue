@@ -1,7 +1,7 @@
 <template>
   <main>
     <Bubble v-for="(item, index) in bubbleSizeList" :key="index" :size="item" />
-    <Banner />
+    <Banner :ref="SectionNameNouns.banner" />
     <Story :ref="SectionNameNouns.story" :list="imageList" />
     <Details :ref="SectionNameNouns.details" />
     <Map :ref="SectionNameNouns.map" />

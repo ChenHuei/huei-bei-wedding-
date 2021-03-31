@@ -1,8 +1,12 @@
 <template>
   <div>
-    <Header :title="title" :list="menuList" />
+    <Header :title="title" :list="menuList" @scroll="scrollTo" />
     <nuxt-child ref="content" @init="init" />
-    <BackTop :current="currentYOffset" :inner-height="innerHeight" />
+    <BackTop
+      :current="currentYOffset"
+      :inner-height="innerHeight"
+      @scroll="scrollTo"
+    />
   </div>
 </template>
 
@@ -20,9 +24,6 @@ import { debounce } from 'vue-debounce'
 // constants
 import { PROJECT_TITLE, SectionNameNouns } from '@/constants'
 
-// types
-import { MenuItem } from '@/types'
-
 @Component({
   data() {
     return {
@@ -31,14 +32,14 @@ import { MenuItem } from '@/types'
   },
 })
 export default class DefaultLayout extends Vue {
-  currentYOffset = 0
   innerHeight = 0
+  currentYOffset = 0
 
-  menuList: MenuItem[] = [
-    { title: SectionNameNouns.story, offsetTop: 0 },
-    { title: SectionNameNouns.details, offsetTop: 0 },
-    { title: SectionNameNouns.map, offsetTop: 0 },
-    { title: SectionNameNouns.event, offsetTop: 0 },
+  menuList: SectionNameNouns[] = [
+    SectionNameNouns.story,
+    SectionNameNouns.details,
+    SectionNameNouns.map,
+    SectionNameNouns.event,
   ]
 
   mounted(): void {
@@ -62,14 +63,6 @@ export default class DefaultLayout extends Vue {
   }
 
   onResize(): void {
-    // set menu item offsetTop
-    this.menuList.forEach((item, index) => {
-      const target = ((this.$refs.content as Vue).$refs[item.title] as Vue)
-        .$el as HTMLElement
-
-      this.$set(this.menuList[index], 'offsetTop', target.offsetTop)
-    })
-
     // set inner height
     this.innerHeight = window.innerHeight
   }
@@ -77,6 +70,12 @@ export default class DefaultLayout extends Vue {
   onScroll(): void {
     // set current pageYOffset
     this.currentYOffset = window.pageYOffset
+  }
+
+  scrollTo(target: SectionNameNouns) {
+    ;((this.$refs.content as Vue).$refs[target] as Vue).$el.scrollIntoView({
+      behavior: 'smooth',
+    })
   }
 }
 </script>
