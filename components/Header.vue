@@ -22,8 +22,8 @@
 
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
-// constants
-import { SectionNameNouns } from '~/constants'
+// types
+import { MenuItem } from '~/types'
 
 @Component
 export default class Header extends Vue {
@@ -31,13 +31,13 @@ export default class Header extends Vue {
   title!: string
 
   @Prop()
-  list!: SectionNameNouns[]
+  list!: MenuItem[]
 
   @Emit()
-  scroll(target: SectionNameNouns): SectionNameNouns {
+  scroll(offset: number): number {
     this.isOpenMobileMenu = false
 
-    return target
+    return offset
   }
 
   isOpenMobileMenu = false
