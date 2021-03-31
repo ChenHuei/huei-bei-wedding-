@@ -47,6 +47,8 @@ export default {
     '@nuxtjs/color-mode',
     // https://github.com/nuxt-community/svg-module#readme
     '@nuxtjs/svg',
+    // https://github.com/ivodolenc/nuxt-gsap-module
+    'nuxt-gsap-module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -108,5 +110,10 @@ export default {
     classPrefix: '',
     classSuffix: '-mode',
     storageKey: 'nuxt-color-mode',
+  },
+  gsap: {
+    extraPlugins: {
+      motionPath: true,
+    },
   },
 }
