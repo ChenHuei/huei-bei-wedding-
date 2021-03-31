@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header :title="title" :list="menuList" @scroll="scrollTo" />
-    <nuxt-child ref="content" @init="init" />
+    <nuxt-child ref="content" :inner-height="innerHeight" @init="init" />
     <BackTop
       :current="currentYOffset"
       :inner-height="innerHeight"

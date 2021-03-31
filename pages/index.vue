@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit } from 'vue-property-decorator'
+import { Component, Vue, Emit, Prop, Watch } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -19,7 +19,9 @@ import {
   BubbleSizeNouns,
   BubbleDurationNouns,
   BubbleScaleNouns,
+  BubbleOffsetNouns,
   BUBBLE_NUMBERS,
+  BUBBLE_PATH_LENGTH,
 } from '@/constants/bubble'
 
 // utils
@@ -33,16 +35,27 @@ import { getRandomBetween } from '@/utils/math'
   },
 })
 export default class Index extends Vue {
+  @Prop()
+  innerHeight!: number
+
   @Emit()
-  init(): void {
+  init(): void {}
+
+  @Watch('innerHeight')
+  onInnerHeightChanged(): void {
     gsap.utils.toArray('.bubble').forEach((bubble, i) => {
       gsap.to(bubble as gsap.TweenTarget, {
         duration: `random(${BubbleDurationNouns.min}, ${BubbleDurationNouns.max})`,
         delay: i * 0.5,
         repeat: -1,
-        top: 0,
         opacity: 0,
         scale: `random(${BubbleScaleNouns.min}, ${BubbleScaleNouns.max})`,
+        motionPath: {
+          path: this.getPathMaker(),
+          type: 'cubic',
+          curviness: 2,
+          autoRotate: true,
+        },
         onRepeat: () => {
           this.$set(
             this.bubbleSizeList,
@@ -86,6 +99,20 @@ export default class Index extends Vue {
         .map(() => getRandomBetween(BubbleSizeNouns.min, BubbleSizeNouns.max))
       resolve()
     })
+  }
+
+  getPathMaker() {
+    return Array(BUBBLE_PATH_LENGTH)
+      .fill(0)
+      .map((_, index) => {
+        return {
+          x:
+            index === 0
+              ? 0
+              : getRandomBetween(BubbleOffsetNouns.min, BubbleOffsetNouns.max),
+          y: (this.innerHeight * -1 * index) / (BUBBLE_PATH_LENGTH - 1),
+        }
+      })
   }
 }
 </script>
