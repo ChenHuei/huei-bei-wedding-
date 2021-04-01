@@ -14,6 +14,43 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/static/icons/android-icon-192x192.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/static/icons/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: '/static/icons/favicon-96x96.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/static/icons/favicon-16x16.png',
+      },
+      // for ie
+      {
+        name: 'msapplication-TileImage',
+        content: '/static/icons/apple-icon-114x114.png',
+      },
+      {
+        name: 'msapplication-TileColor',
+        content: '#fcf6e6',
+      },
+      {
+        name: 'theme-color',
+        content: '#b09259',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -22,6 +59,52 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&display=swap',
+      },
+      // for safari icons
+      {
+        rel: 'apple-touch-icon',
+        sizes: '57x57',
+        href: '/static/icons/apple-icon-57x57.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '60x60',
+        href: '/static/icons/apple-icon-60x60.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '72x72',
+        href: '/static/icons/apple-icon-72x72.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '76x76',
+        href: '/static/icons/apple-icon-76x76.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '114x114',
+        href: '/static/icons/apple-icon-114x114.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '120x120',
+        href: '/static/icons/apple-icon-120x120.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '144x144',
+        href: '/static/icons/apple-icon-144x144.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '152x152',
+        href: '/static/icons/apple-icon-152x152.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/static/icons/apple-icon-180x180.png',
       },
     ],
   },
@@ -72,7 +155,6 @@ export default {
           measurementId: 'G-D5CK7VCDJM',
         },
         services: {
-          auth: true, // Just as example. Can be any other service.
           storage: true,
         },
       },
@@ -85,7 +167,19 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'huei & bei weeding',
+      short_name: '婚禮資訊',
+      description: 'huei & bei 的婚禮資訊',
+      display: 'standalone',
+      orientation: 'portrait-primary',
+      background_color: '#fcf6e6',
+      theme_color: '#b09259',
+      dir: 'ltr',
       lang: 'en',
+    },
+    meta: {
+      mobileAppIOS: 'yes',
+      appleStatusBarStyle: 'black',
     },
   },
 
@@ -97,10 +191,13 @@ export default {
   stylelint: {
     fix: true,
   },
+
   tailwindcss: {
+    viewer: false,
     configPath: '~/tailwind.config.ts',
     cssPath: '~/assets/styles/tailwind.css',
   },
+
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
     fallback: 'light', // fallback value if not system preference found
@@ -111,6 +208,7 @@ export default {
     classSuffix: '-mode',
     storageKey: 'nuxt-color-mode',
   },
+
   gsap: {
     extraPlugins: {
       motionPath: true,
