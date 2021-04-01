@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -138,6 +140,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://firebase.nuxtjs.org
@@ -145,14 +149,14 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: 'AIzaSyCvYugu3OInby9aby4-EvHTvmjPmErFnb4',
-          authDomain: 'huei-bei-wedding.firebaseapp.com',
-          databaseURL: 'https://huei-bei-wedding-default-rtdb.firebaseio.com',
-          projectId: 'huei-bei-wedding',
-          storageBucket: 'huei-bei-wedding.appspot.com',
-          messagingSenderId: '5978109325',
-          appId: '1:5978109325:web:de481dfc689b4a9e7779c4',
-          measurementId: 'G-D5CK7VCDJM',
+          apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          databaseURL: process.env.DATABASE_URL,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID,
+          measurementId: process.env.MEASUREMENT_ID,
         },
         services: {
           storage: true,
@@ -180,6 +184,9 @@ export default {
     meta: {
       mobileAppIOS: 'yes',
       appleStatusBarStyle: 'black',
+    },
+    workbox: {
+      autoRegister: true,
     },
   },
 
