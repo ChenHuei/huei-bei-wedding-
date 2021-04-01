@@ -8,12 +8,12 @@
       :key="index"
       class="mb-2 leading-8 text-gray-500"
     >
-      <h4 v-if="item.title" class="mb-1 text-primary">
+      <p v-if="item.title" class="mb-1 text-primary">
         {{ item.title }}
-      </h4>
-      <p v-for="element in item.description" :key="element">
-        {{ element }}
       </p>
+      <span v-for="element in item.description" :key="element">
+        {{ element }}
+      </span>
     </div>
   </div>
 </template>

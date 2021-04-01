@@ -2,7 +2,13 @@
   <BasicSection v-bind="information">
     <div class="flex flex-col justify-center items-center">
       <h1 class="text-lg">Line Bot</h1>
-      <img class="w-40 h-40 my-4" :src="qrcodePNG" alt="qrcode" />
+      <img
+        class="w-40 h-40 my-4"
+        width="160"
+        height="160"
+        :src="qrcodePNG"
+        alt="qrcode"
+      />
       <p>加入 Line 好友 (@658rrlyt)</p>
     </div>
   </BasicSection>

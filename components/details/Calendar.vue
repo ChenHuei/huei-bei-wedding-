@@ -1,6 +1,7 @@
 <template>
   <a
     class="mt-16 text-lg text-primary text-center underline"
+    rel="noopener"
     target="_blank"
     :href="link"
   >

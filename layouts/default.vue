@@ -49,8 +49,8 @@ export default class DefaultLayout extends Vue {
     const debounceOnReisze = debounce(this.onResize, 300)
     const debounceOnScroll = debounce(this.onScroll, 100)
 
-    window.addEventListener('resize', debounceOnReisze)
-    window.addEventListener('scroll', debounceOnScroll)
+    window.addEventListener('resize', debounceOnReisze, { passive: true })
+    window.addEventListener('scroll', debounceOnScroll, { passive: true })
 
     this.$once('hook:beforeDestroy', (): void => {
       window.removeEventListener('resize', debounceOnReisze)
