@@ -2,7 +2,7 @@ require('dotenv').config()
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
   // Server
   // server: {
   //   port: 8000, // default: 3000
@@ -15,7 +15,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'huei & bei wedding information',
+      },
       {
         rel: 'icon',
         type: 'image/png',
@@ -146,6 +150,13 @@ export default {
     '@nuxtjs/pwa',
     // https://firebase.nuxtjs.org
     [
+      '@nuxtjs/component-cache',
+      {
+        max: 10000,
+        maxAge: 1000 * 60 * 60,
+      },
+    ],
+    [
       '@nuxtjs/firebase',
       {
         config: {
@@ -186,7 +197,26 @@ export default {
       appleStatusBarStyle: 'black',
     },
     workbox: {
+      enabled: true,
       autoRegister: true,
+      preCaching: [],
+      runtimeCaching: [
+        {
+          urlPattern: 'https://fonts.googleapis.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+        },
+        {
+          urlPattern: 'https://fonts.gstatic.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+        },
+        {
+          urlPattern: 'https://cdn.snipcart.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+        },
+      ],
     },
   },
 
