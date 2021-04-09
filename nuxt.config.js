@@ -9,7 +9,7 @@ export default {
   //   host: '0.0.0.0', // default: localhost
   // },
   router: {
-    base: 'huei-bei-wedding',
+    base: '/huei-bei-wedding/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
