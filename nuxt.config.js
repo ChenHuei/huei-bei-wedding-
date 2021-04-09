@@ -2,12 +2,15 @@ require('dotenv').config()
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
   // Server
   // server: {
   //   port: 8000, // default: 3000
   //   host: '0.0.0.0', // default: localhost
   // },
+  router: {
+    base: 'huei-bei-wedding',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
