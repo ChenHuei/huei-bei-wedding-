@@ -30,16 +30,13 @@ export default class BackTop extends Vue {
   @Prop()
   current!: number
 
-  @Prop()
-  innerHeight!: number
-
   @Emit()
   scroll(offset: number = 0): number {
     return offset
   }
 
   get isDisplay(): boolean {
-    return this.current > this.innerHeight / 2
+    return this.current > window.innerHeight / 2
   }
 }
 </script>

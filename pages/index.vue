@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -20,8 +20,8 @@ import {
   BubbleDurationNouns,
   BubbleScaleNouns,
   BubbleOffsetNouns,
-  BUBBLE_NUMBERS,
   BUBBLE_PATH_LENGTH,
+  BUBBLE_DELAY,
 } from '@/constants/bubble'
 
 // utils
@@ -36,17 +36,17 @@ import { getRandomBetween } from '@/utils/math'
 })
 export default class Index extends Vue {
   @Prop()
+  innerWidth!: number
+
+  @Prop()
   innerHeight!: number
 
   @Emit()
-  init(): void {}
-
-  @Watch('innerHeight')
-  onInnerHeightChanged(): void {
+  init(): void {
     gsap.utils.toArray('.bubble').forEach((bubble, i) => {
       gsap.to(bubble as gsap.TweenTarget, {
         duration: `random(${BubbleDurationNouns.min}, ${BubbleDurationNouns.max})`,
-        delay: i * 0.5,
+        delay: i * BUBBLE_DELAY,
         repeat: -1,
         opacity: 0,
         scale: `random(${BubbleScaleNouns.min}, ${BubbleScaleNouns.max})`,
@@ -93,8 +93,10 @@ export default class Index extends Vue {
   }
 
   setBubbleSizeList(): Promise<void> {
+    const bubbleNumbers = Math.ceil(window.innerWidth / 100)
+
     return new Promise((resolve) => {
-      this.bubbleSizeList = Array(BUBBLE_NUMBERS)
+      this.bubbleSizeList = Array(bubbleNumbers)
         .fill(0)
         .map(() => getRandomBetween(BubbleSizeNouns.min, BubbleSizeNouns.max))
       resolve()
@@ -102,16 +104,23 @@ export default class Index extends Vue {
   }
 
   getPathMaker() {
+    const MOBILE_BROWSER_NAVIGATION_HEIGHT = 100
+
     return Array(BUBBLE_PATH_LENGTH)
       .fill(0)
       .map((_, index) => {
-        return {
-          x:
-            index === 0
-              ? 0
-              : getRandomBetween(BubbleOffsetNouns.min, BubbleOffsetNouns.max),
-          y: (this.innerHeight * -1 * index) / (BUBBLE_PATH_LENGTH - 1),
-        }
+        return index === 0
+          ? {
+              x: 0,
+              y: 0,
+            }
+          : {
+              x: getRandomBetween(BubbleOffsetNouns.min, BubbleOffsetNouns.max),
+              y:
+                -1 *
+                ((window.innerHeight * index) / (BUBBLE_PATH_LENGTH - 1) +
+                  MOBILE_BROWSER_NAVIGATION_HEIGHT),
+            }
       })
   }
 }

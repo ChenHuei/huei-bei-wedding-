@@ -1,12 +1,10 @@
 <template>
   <div>
     <Header :title="title" :list="menuList" @scroll="scrollTo" />
-    <nuxt-child ref="content" :inner-height="innerHeight" @init="init" />
-    <BackTop
-      :current="currentYOffset"
-      :inner-height="innerHeight"
-      @scroll="scrollTo"
-    />
+    <nuxt-child ref="content" @init="init" />
+    <client-only>
+      <BackTop :current="currentYOffset" @scroll="scrollTo" />
+    </client-only>
   </div>
 </template>
 
@@ -35,7 +33,6 @@ import { MenuItem } from '@/types'
   },
 })
 export default class DefaultLayout extends Vue {
-  innerHeight = 0
   currentYOffset = 0
 
   menuList: MenuItem[] = [
@@ -73,9 +70,6 @@ export default class DefaultLayout extends Vue {
 
       this.$set(this.menuList[index], 'offsetTop', target.offsetTop)
     })
-
-    // set inner height
-    this.innerHeight = window.innerHeight
   }
 
   onScroll(): void {
