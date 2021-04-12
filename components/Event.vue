@@ -29,7 +29,9 @@ import { EVENTS_INFO } from '@/constants/event'
 @Component({
   data() {
     return {
-      qrcodePNG: require('@/assets/images/LineBot.png'),
+      qrcodePNG: require(`@/assets/images/LineBot.${
+        (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'png'
+      }`),
       information: EVENTS_INFO,
     }
   },
