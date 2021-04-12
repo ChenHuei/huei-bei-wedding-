@@ -27,13 +27,16 @@
  *  @summary summary
  */
 
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 @Component
 export default class BasicSection extends Vue {
   @Prop()
   title!: string
+
+  @Emit()
+  enter(): void {}
 
   mounted(): void {
     if (process.client) {
@@ -47,6 +50,8 @@ export default class BasicSection extends Vue {
         triggerHook: 0.99,
       })
         .on('enter', () => {
+          this.enter()
+
           gsap.from(this.$refs.outer, {
             duration: 0.25,
             scaleX: 0,

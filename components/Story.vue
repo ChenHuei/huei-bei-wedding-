@@ -1,6 +1,7 @@
 <template>
-  <BasicSection v-bind="information">
+  <BasicSection v-bind="information" @enter="init">
     <div
+      v-if="isInit"
       class="w-full flex flex-col justify-between items-center -mb-10 lg:flex-row lg:mb-0"
     >
       <div
@@ -36,5 +37,11 @@ import { STORY_INFO } from '@/constants/story'
 export default class Story extends Vue {
   @Prop()
   list!: string[]
+
+  isInit = false
+
+  init(): void {
+    this.isInit = true
+  }
 }
 </script>

@@ -1,12 +1,17 @@
 <template>
-  <BasicSection v-bind="information">
+  <BasicSection v-bind="information" @enter="init">
     <iframe
+      v-if="isInit"
       title="map"
       class="maps-iframe w-full mb-10"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.305479178304!2d121.53631911544711!3d25.05763334349659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe1955a26c7%3A0xef585276efb6d0ef!2z5pm25a605pyD6aSoLeawkeeUn-mkqCB8IOWPsOWMl-WpmuWutOacg-mkqCB8IOWPsOWMl-WpmuWutOWgtOWcsA!5e0!3m2!1szh-TW!2stw!4v1615799659911!5m2!1szh-TW!2stw"
       allowfullscreen=""
       loading="lazy"
     ></iframe>
+    <div
+      v-else
+      class="maps-iframe animate-pulse w-full mb-10 bg-gray-300 rounded"
+    ></div>
     <a
       class="map-link mb-10 text-lg text-primary text-center underline leading-8 lg:text-xl"
       rel="noopener"
@@ -41,7 +46,13 @@ import { MAP_INFO, MAP_LOCATION, MAP_TRAFFIC } from '@/constants/map'
     }
   },
 })
-export default class Map extends Vue {}
+export default class Map extends Vue {
+  isInit = false
+
+  init(): void {
+    this.isInit = true
+  }
+}
 </script>
 
 <style lang="scss" scoped>
