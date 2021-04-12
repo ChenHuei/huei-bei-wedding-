@@ -218,6 +218,18 @@ export default {
           method: 'GET',
           strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
         },
+        {
+          urlPattern: '.*/_nuxt/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: {
+            cacheableResponse: { statuses: [0, 200] },
+            cacheExpiration: {
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+              maxEntries: 30,
+            },
+          },
+        },
       ],
     },
   },
