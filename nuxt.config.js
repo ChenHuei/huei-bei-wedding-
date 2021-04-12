@@ -202,22 +202,26 @@ export default {
     workbox: {
       enabled: true,
       autoRegister: true,
+      cacheAssets: true,
       preCaching: [],
       runtimeCaching: [
         {
           urlPattern: 'https://fonts.googleapis.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
         },
         {
           urlPattern: 'https://fonts.gstatic.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
         },
         {
           urlPattern: 'https://cdn.snipcart.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
         },
       ],
     },
