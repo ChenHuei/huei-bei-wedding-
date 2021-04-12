@@ -4,10 +4,10 @@
     <Bubble v-for="(item, index) in bubbleSizeList" :key="index" :size="item" />
     <!-- content -->
     <Banner :ref="SectionNameNouns.banner" />
-    <Story :ref="SectionNameNouns.story" :list="imageList" />
-    <Details :ref="SectionNameNouns.details" />
-    <Map :ref="SectionNameNouns.map" />
-    <Event :ref="SectionNameNouns.event" />
+    <LazyStory :ref="SectionNameNouns.story" :list="imageList" />
+    <LazyDetails :ref="SectionNameNouns.details" />
+    <LazyMap :ref="SectionNameNouns.map" />
+    <LazyEvent :ref="SectionNameNouns.event" />
   </main>
 </template>
 
