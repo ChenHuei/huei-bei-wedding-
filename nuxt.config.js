@@ -204,30 +204,24 @@ export default {
           urlPattern: 'https://fonts.googleapis.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
-          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+          strategyOptions: {
+            cacheableResponse: { statuses: [0, 200] },
+          },
         },
         {
           urlPattern: 'https://fonts.gstatic.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
-          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+          strategyOptions: {
+            cacheableResponse: { statuses: [0, 200] },
+          },
         },
         {
           urlPattern: 'https://cdn.snipcart.com/.*',
           handler: 'cacheFirst',
           method: 'GET',
-          strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
-        },
-        {
-          urlPattern: '.*/_nuxt/.*',
-          handler: 'cacheFirst',
-          method: 'GET',
           strategyOptions: {
             cacheableResponse: { statuses: [0, 200] },
-            cacheExpiration: {
-              maxAgeSeconds: 60 * 60 * 24 * 7,
-              maxEntries: 30,
-            },
           },
         },
       ],
