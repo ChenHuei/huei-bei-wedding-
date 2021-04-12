@@ -1,6 +1,8 @@
 <template>
   <main>
+    <!-- bubble -->
     <Bubble v-for="(item, index) in bubbleSizeList" :key="index" :size="item" />
+    <!-- content -->
     <Banner :ref="SectionNameNouns.banner" />
     <Story :ref="SectionNameNouns.story" :list="imageList" />
     <Details :ref="SectionNameNouns.details" />

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bubble fixed bg-primary rounded-full opacity-70 z-10 pointer-events-none"
+    class="bubble fixed bg-primary rounded-full z-10 pointer-events-none"
     :style="getStyles"
   ></div>
 </template>
@@ -33,3 +33,9 @@ export default class Bubble extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.bubble {
+  opacity: 0.6;
+}
+</style>
