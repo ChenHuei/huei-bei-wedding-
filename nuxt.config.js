@@ -23,6 +23,20 @@ export default {
         name: 'description',
         content: 'huei & bei wedding information',
       },
+      // meta
+      { property: 'og:title', content: 'huei & bei weeding' },
+      { property: 'og:description', content: 'huei & bei 的婚禮資訊' },
+      {
+        property: 'og:image',
+        content: '/static/icons/android-icon-192x192.png',
+      },
+      { property: 'og:site_name', content: 'huei & bei weeding' },
+      {
+        property: 'og:url',
+        content: 'https://chenhuei.github.io/huei-bei-wedding/',
+      },
+      { property: 'og:locale', content: 'zh_TW' },
+      // pwa
       {
         rel: 'icon',
         type: 'image/png',
@@ -47,7 +61,7 @@ export default {
         sizes: '16x16',
         href: '/static/icons/favicon-16x16.png',
       },
-      // for ie
+      // ie
       {
         name: 'msapplication-TileImage',
         content: '/static/icons/apple-icon-114x114.png',
@@ -58,7 +72,7 @@ export default {
       },
       {
         name: 'theme-color',
-        content: '#b09259',
+        content: '#94763d',
       },
     ],
     link: [
@@ -189,7 +203,7 @@ export default {
       display: 'standalone',
       orientation: 'portrait-primary',
       background_color: '#fcf6e6',
-      theme_color: '#b09259',
+      theme_color: '#94763d',
       dir: 'ltr',
       lang: 'en',
     },
@@ -198,9 +212,6 @@ export default {
       appleStatusBarStyle: 'black',
     },
     workbox: {
-      enabled: true,
-      autoRegister: true,
-      cacheAssets: true,
       preCaching: [],
       runtimeCaching: [
         {
@@ -226,6 +237,23 @@ export default {
           strategyOptions: {
             cacheableResponse: { statuses: [0, 200] },
           },
+        },
+        {
+          urlPattern: 'https://firebasestorage.googleapis.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: {
+            cacheableResponse: { statuses: [0, 200] },
+          },
+          strategyPlugins: [
+            {
+              use: 'Expiration',
+              config: {
+                maxEntries: 20,
+                maxAgeSeconds: 600,
+              },
+            },
+          ],
         },
       ],
     },
