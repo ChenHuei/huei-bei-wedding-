@@ -238,23 +238,6 @@ export default {
             cacheableResponse: { statuses: [0, 200] },
           },
         },
-        {
-          urlPattern: 'https://firebasestorage.googleapis.com/.*',
-          handler: 'cacheFirst',
-          method: 'GET',
-          strategyOptions: {
-            cacheableResponse: { statuses: [0, 200] },
-          },
-          strategyPlugins: [
-            {
-              use: 'Expiration',
-              config: {
-                maxEntries: 20,
-                maxAgeSeconds: 600,
-              },
-            },
-          ],
-        },
       ],
     },
   },
