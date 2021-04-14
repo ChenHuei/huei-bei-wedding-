@@ -119,9 +119,10 @@ export default class Index extends Vue {
           : {
               x: getRandomBetween(BubbleOffsetNouns.min, BubbleOffsetNouns.max),
               y:
-                -1 *
-                ((window.innerHeight * index) / (BUBBLE_PATH_LENGTH - 1) +
-                  MOBILE_BROWSER_NAVIGATION_HEIGHT),
+                (-1 *
+                  (window.innerHeight * index +
+                    MOBILE_BROWSER_NAVIGATION_HEIGHT)) /
+                (BUBBLE_PATH_LENGTH - 1),
             }
       })
   }
