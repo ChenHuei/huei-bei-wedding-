@@ -16,6 +16,9 @@ import { gsap } from 'gsap'
 // constants
 import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
 
+// utils
+import { getRandomInteger } from '@/utils/math'
+
 // types
 interface User {
   displayName: string
@@ -61,7 +64,7 @@ export default class App extends Vue {
     document.body.appendChild(textEl)
 
     await gsap.to(`#${textEl.id}`, {
-      duration: this.getRandomSpeed(),
+      duration: getRandomInteger(SPEED_BASE, SPEED_BASE / 2),
       x: -1 * (document.documentElement.clientWidth + textEl.clientWidth),
     })
 
@@ -95,30 +98,12 @@ export default class App extends Vue {
     textEl.style.display = 'flex'
     textEl.style.alignItems = 'center'
 
-    textEl.style.fontSize = `${this.getRandomSize()}px`
+    textEl.style.fontSize = `${getRandomInteger(SIZES_BASE, SIZES_BASE)}px`
     textEl.style.fontWeight = '900'
     textEl.style.whiteSpace = 'nowrap'
-    textEl.style.color = this.getRandomColor()
+    textEl.style.color = COLOR_LIST[getRandomInteger(COLOR_LIST.length - 1)]
 
     return textEl
-  }
-
-  getRandomColor() {
-    const index = this.getRandomInteger(COLOR_LIST.length - 1)
-
-    return COLOR_LIST[index]
-  }
-
-  getRandomSize() {
-    return SIZES_BASE + this.getRandomInteger(SIZES_BASE)
-  }
-
-  getRandomSpeed() {
-    return SPEED_BASE + this.getRandomInteger(SPEED_BASE) / 2
-  }
-
-  getRandomInteger(range: number) {
-    return Math.round(Math.random() * range)
   }
 }
 </script>
