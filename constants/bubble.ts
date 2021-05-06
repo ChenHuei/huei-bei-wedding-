@@ -2,6 +2,8 @@ export const BUBBLE_PATH_LENGTH = 4
 
 export const BUBBLE_DELAY = 0.5
 
+// enum
+
 export enum BubbleSizeNouns {
   max = 50,
   min = 20,

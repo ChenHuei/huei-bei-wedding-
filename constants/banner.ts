@@ -1,14 +1,4 @@
-// types
-interface Component {
-  component: string
-  class?: string[] | string
-}
-
-interface BannerDescriptionComponent extends Component {
-  title: string
-  description: string[]
-  titleClasses: string[]
-}
+import { BannerDescriptionComponent, Component } from '~/types/banner'
 
 // constants
 export const BANNER_CONTENT: (Component | BannerDescriptionComponent)[] = [
