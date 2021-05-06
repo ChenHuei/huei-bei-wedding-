@@ -25,7 +25,8 @@
     "scrollmagic": "^2.0.8",
     "vue-class-component": "^7.2.6",
     "vue-debounce": "^2.6.0",
-    "vue-property-decorator": "^9.0.0"
+    "vue-property-decorator": "^9.0.0",
+    "vue-youtube": "^1.4.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",

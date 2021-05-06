@@ -1,16 +1,16 @@
 <template>
-  <div class="video relative bg-black">
-    <video class="w-screen h-screen" autoplay controls muted loop>
-      <source
-        type="video/mp4"
-        :src="require('@/assets/videos/pre-wedding.mp4')"
-      />
-    </video>
+  <div class="video relative w-screen h-screen bg-black">
+    <youtube
+      ref="youtube"
+      class="w-full h-full"
+      video-id="ql8hqGFjuck"
+      @ended="youtubeEndHandler"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Ref, Vue } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -26,6 +26,13 @@ import { getRandomInteger } from '@/utils/math'
   layout: 'empty',
 })
 export default class App extends Vue {
+  @Ref('youtube')
+  youtubeRef!: Vue & {
+    player: {
+      seekTo: (start: number) => void
+    }
+  }
+
   mounted(): void {
     const eventSource = new EventSource(`${process.env.API_URL}messages`)
 
@@ -43,6 +50,10 @@ export default class App extends Vue {
         })
       })
     }
+  }
+
+  youtubeEndHandler(): void {
+    this.youtubeRef.player.seekTo(0)
   }
 
   async createText(item: Message): Promise<void> {
