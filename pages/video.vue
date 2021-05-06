@@ -2,8 +2,8 @@
   <div class="video relative bg-black">
     <video class="w-screen h-screen" autoplay controls muted loop>
       <source
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         type="video/mp4"
+        :src="require('@/assets/videos/pre-wedding.mp4')"
       />
     </video>
   </div>

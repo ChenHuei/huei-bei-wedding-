@@ -88,8 +88,16 @@ export default class Index extends Vue {
   async setImageList(): Promise<void> {
     const list = await this.$fire.storage
       .ref()
-      .listAll()
-      .then((result) => result.items.map((item) => item.getDownloadURL()))
+      .list({ maxResults: 3 })
+      .then((result) =>
+        result.items
+          .filter((item) => {
+            const [, type] = item.name.split('.')
+            return type === 'mov' ? '' : item
+          })
+          .filter(Boolean)
+          .map((item) => item.getDownloadURL())
+      )
 
     this.imageList = await Promise.all(list).then((url) => url)
   }
