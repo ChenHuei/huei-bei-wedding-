@@ -16,7 +16,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 // types
-import { Direction } from '@/types'
+import { Direction } from '@/constants'
 
 // images
 import LaurelSVG from '@/assets/images/Laurel.svg'

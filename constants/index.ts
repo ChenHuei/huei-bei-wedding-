@@ -15,3 +15,8 @@ export enum ColorModeNouns {
   light = 'light',
   dark = 'dark',
 }
+
+export enum Direction {
+  LEFT = 'left',
+  RIGHT = 'right',
+}

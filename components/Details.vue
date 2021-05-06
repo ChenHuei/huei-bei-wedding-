@@ -28,7 +28,7 @@ import {
 } from '@/constants/details'
 
 // types
-import { Direction } from '@/types'
+import { Direction } from '@/constants'
 
 @Component({
   data() {

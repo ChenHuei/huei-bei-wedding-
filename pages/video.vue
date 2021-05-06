@@ -16,20 +16,11 @@ import { gsap } from 'gsap'
 // constants
 import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
 
+// types
+import { User, Message } from '@/types/video'
+
 // utils
 import { getRandomInteger } from '@/utils/math'
-
-// types
-interface User {
-  displayName: string
-  pictureUrl: string
-}
-
-interface Message {
-  id: number
-  message: string
-  user: User
-}
 
 @Component({
   layout: 'empty',
