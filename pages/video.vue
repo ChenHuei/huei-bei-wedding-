@@ -17,7 +17,7 @@ import { gsap } from 'gsap'
 import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
 
 // types
-import { User, Message } from '@/types/video'
+import { Message } from '@/types/video'
 
 // utils
 import { getRandomInteger } from '@/utils/math'
@@ -39,16 +39,15 @@ export default class App extends Vue {
     )
 
     eventSource.onmessage = (e) => {
-      const messages: {
-        user: User
-        text: string
-      }[] = JSON.parse(e.data).messages
+      const messages: Pick<
+        Message,
+        'text' | 'displayName' | 'pictureUrl'
+      >[] = JSON.parse(e.data).messages
 
       messages.forEach((message) => {
         this.createText({
           id: new Date().getTime(),
-          message: message.text,
-          user: message.user,
+          ...message,
         })
       })
     }
@@ -60,10 +59,10 @@ export default class App extends Vue {
 
   async createText(item: Message): Promise<void> {
     const textEl = this.getTextElement(item.id, document.documentElement)
-    const userEl = this.getUserElement(item.user.pictureUrl)
+    const userEl = this.getUserElement(item.pictureUrl)
 
     textEl.appendChild(userEl)
-    textEl.appendChild(document.createTextNode(item.message))
+    textEl.appendChild(document.createTextNode(item.text))
 
     document.body.appendChild(textEl)
 
