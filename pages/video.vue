@@ -34,9 +34,7 @@ export default class App extends Vue {
   }
 
   mounted(): void {
-    const eventSource = new EventSource(
-      'https://wedding-line-bot.herokuapp.com/messages'
-    )
+    const eventSource = new EventSource(`${process.env.API_URL}messages`)
 
     eventSource.onmessage = (e) => {
       const messages: Pick<
