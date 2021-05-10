@@ -18,5 +18,3 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-# huei-bei-wedding-
-# huei-bei-wedding
