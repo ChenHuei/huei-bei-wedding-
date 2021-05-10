@@ -6,7 +6,7 @@ export const MAP_INFO: BasicSection = {
 
 export const MAP_LOCATION: string[] = [
   'At 晶宴會館 - 民生館',
-  '(台北市中山區民生東路三段 8 號 1 樓)',
+  '(台北市中山區民生東路三段 8 號 B2)',
 ]
 
 export const MAP_TRAFFIC: {

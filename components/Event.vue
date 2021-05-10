@@ -6,8 +6,8 @@
         class="w-40 h-40 my-4"
         width="160"
         height="160"
-        :src="qrcodePNG"
         alt="qrcode"
+        :src="qrcodeImage"
       />
       <p>加入 Line 好友 (@658rrlyt)</p>
     </div>
@@ -29,7 +29,7 @@ import { EVENTS_INFO } from '@/constants/event'
 @Component({
   data() {
     return {
-      qrcodePNG: require(`@/assets/images/LineBot.${
+      qrcodeImage: require(`@/assets/images/LineBot.${
         (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'png'
       }`),
       information: EVENTS_INFO,
