@@ -1,16 +1,16 @@
 <template>
   <div class="video relative w-screen h-screen bg-black">
-    <youtube
-      ref="youtube"
-      class="w-full h-full"
-      video-id="ql8hqGFjuck"
-      @ended="youtubeEndHandler"
-    />
+    <video class="w-full h-full" autoplay controls muted loop>
+      <source
+        src="https://chenhuei-static.s3-ap-northeast-1.amazonaws.com/prewedding.mov"
+        type="video/mp4"
+      />
+    </video>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Ref, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -26,21 +26,12 @@ import { getRandomInteger } from '@/utils/math'
   layout: 'empty',
 })
 export default class App extends Vue {
-  @Ref('youtube')
-  youtubeRef!: Vue & {
-    player: {
-      seekTo: (start: number) => void
-    }
-  }
-
   mounted(): void {
     const eventSource = new EventSource(`${process.env.API_URL}messages`)
 
     eventSource.onmessage = (e) => {
-      const messages: Pick<
-        Message,
-        'text' | 'displayName' | 'pictureUrl'
-      >[] = JSON.parse(e.data).messages
+      const messages: Pick<Message, 'text' | 'displayName' | 'pictureUrl'>[] =
+        JSON.parse(e.data).messages
 
       messages.forEach((message) => {
         this.createText({
@@ -49,10 +40,6 @@ export default class App extends Vue {
         })
       })
     }
-  }
-
-  youtubeEndHandler(): void {
-    this.youtubeRef.player.seekTo(0)
   }
 
   async createText(item: Message): Promise<void> {
@@ -108,11 +95,3 @@ export default class App extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.video {
-  div {
-    transition: 0.5s;
-  }
-}
-</style>
