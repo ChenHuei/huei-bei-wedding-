@@ -134,7 +134,6 @@ export default {
   plugins: [
     { src: '@/plugins/scrollmagic', ssr: false },
     { src: '@/plugins/detect-webp' },
-    { src: '@/plugins/vue-youtube' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
