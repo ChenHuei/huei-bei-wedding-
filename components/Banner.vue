@@ -4,7 +4,19 @@
     :style="{ backgroundImage: `url(${bannerImage})` }"
   >
     <div
-      class="banner-content absolute w-3/4 h-auto p-16 flex flex-col justify-center items-center bg-white lg:w-1/2 md:p-20"
+      class="
+        banner-content
+        absolute
+        w-3/4
+        h-auto
+        p-16
+        flex flex-col
+        justify-center
+        items-center
+        bg-white
+        lg:w-1/2
+        md:p-20
+      "
     >
       <component
         :is="item.component"
@@ -32,7 +44,7 @@ import { BANNER_CONTENT } from '@/constants/banner'
   data() {
     return {
       bannerImage: require(`@/assets/images/Banner.${
-        (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpeg'
+        (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
       }`),
       list: BANNER_CONTENT,
     }
