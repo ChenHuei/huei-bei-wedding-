@@ -78,6 +78,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap',
+        rel: 'stylesheet',
+      },
       // for safari icons
       {
         rel: 'apple-touch-icon',
