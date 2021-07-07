@@ -58,6 +58,7 @@ export default class Banner extends Vue {}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0.95;
   clip-path: polygon(
     0% 15%,
     15% 15%,
