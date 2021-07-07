@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header :title="title" :list="menuList" @scroll="scrollTo" />
+    <Header :title="title" :list="menuList" />
     <nuxt-child ref="content" @init="init" />
     <client-only>
-      <BackTop :current="currentYOffset" @scroll="scrollTo" />
+      <BackTop :current="currentYOffset" />
     </client-only>
   </div>
 </template>
@@ -36,21 +36,18 @@ export default class DefaultLayout extends Vue {
   currentYOffset = 0
 
   menuList: MenuItem[] = [
-    { title: SectionNameNouns.story, offsetTop: 0 },
-    { title: SectionNameNouns.details, offsetTop: 0 },
-    { title: SectionNameNouns.map, offsetTop: 0 },
-    { title: SectionNameNouns.event, offsetTop: 0 },
+    { title: SectionNameNouns.story },
+    { title: SectionNameNouns.details },
+    { title: SectionNameNouns.map },
+    { title: SectionNameNouns.event },
   ]
 
   mounted(): void {
-    const debounceOnReisze = debounce(this.onResize, 300)
     const debounceOnScroll = debounce(this.onScroll, 100)
 
-    window.addEventListener('resize', this.onResize, { passive: true })
     window.addEventListener('scroll', this.onScroll, { passive: true })
 
     this.$once('hook:beforeDestroy', (): void => {
-      window.removeEventListener('resize', debounceOnReisze)
       window.removeEventListener('scroll', debounceOnScroll)
     })
   }
@@ -58,30 +55,12 @@ export default class DefaultLayout extends Vue {
   // methods
 
   init(): void {
-    this.onResize()
     this.onScroll()
-  }
-
-  onResize(): void {
-    // set menu item offsetTop
-    this.menuList.forEach((item, index) => {
-      const target = ((this.$refs.content as Vue).$refs[item.title] as Vue)
-        .$el as HTMLElement
-
-      this.$set(this.menuList[index], 'offsetTop', target.offsetTop)
-    })
   }
 
   onScroll(): void {
     // set current pageYOffset
     this.currentYOffset = window.pageYOffset
-  }
-
-  scrollTo(top: number): void {
-    window.scrollTo({
-      top,
-      behavior: 'smooth',
-    })
   }
 }
 </script>

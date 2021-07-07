@@ -3,11 +3,11 @@
     <!-- bubble -->
     <Bubble v-for="(item, index) in bubbleSizeList" :key="index" :size="item" />
     <!-- content -->
-    <Banner :ref="SectionNameNouns.banner" />
-    <LazyStory :ref="SectionNameNouns.story" :list="imageList" />
-    <LazyDetails :ref="SectionNameNouns.details" />
-    <LazyMap :ref="SectionNameNouns.map" />
-    <LazyEvent :ref="SectionNameNouns.event" />
+    <Banner :id="SectionNameNouns.banner" />
+    <LazyStory :id="SectionNameNouns.story" :list="imageList" />
+    <LazyDetails :id="SectionNameNouns.details" />
+    <LazyMap :id="SectionNameNouns.map" />
+    <LazyEvent :id="SectionNameNouns.event" />
   </main>
 </template>
 

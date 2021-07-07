@@ -2,8 +2,24 @@
   <transition name="fade">
     <div
       v-show="isDisplay"
-      class="back-top fixed w-8 h-8 flex justify-center items-center bg-primary rounded-full transform rotate-180 cursor-pointer duration-500 md:w-12 md:h-12"
-      @click="scroll()"
+      v-scroll-to="'#banner'"
+      class="
+        back-top
+        fixed
+        w-8
+        h-8
+        flex
+        justify-center
+        items-center
+        bg-primary
+        rounded-full
+        transform
+        rotate-180
+        cursor-pointer
+        duration-500
+        md:w-12
+        md:h-12
+      "
     >
       <ArrowDownSvg class="w-4 h-4 md:w-6 md:h-6" />
     </div>
@@ -18,7 +34,7 @@
  *  @summary summary
  */
 
-import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 // images
 import ArrowDownSvg from '@/assets/images/ArrowDown.svg?inline'
@@ -29,11 +45,6 @@ import ArrowDownSvg from '@/assets/images/ArrowDown.svg?inline'
 export default class BackTop extends Vue {
   @Prop()
   current!: number
-
-  @Emit()
-  scroll(offset: number = 0): number {
-    return offset
-  }
 
   get isDisplay(): boolean {
     return this.current > window.innerHeight / 2
