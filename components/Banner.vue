@@ -43,9 +43,7 @@ import { BANNER_CONTENT } from '@/constants/banner'
 @Component({
   data() {
     return {
-      bannerImage: require(`@/assets/images/Banner.${
-        (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-      }`),
+      bannerImage: require('@/assets/images/Banner.jpg'),
       list: BANNER_CONTENT,
     }
   },
