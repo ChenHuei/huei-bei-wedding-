@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative w-full h-screen bg-fixed bg-cover bg-no-repeat bg-center"
+    class="relative w-full h-screen bg-cover bg-no-repeat bg-center lg:bg-fixed"
     :style="{ backgroundImage: `url(${bannerImage})` }"
   >
     <div

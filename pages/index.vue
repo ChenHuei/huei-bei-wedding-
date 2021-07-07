@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit, Prop } from 'vue-property-decorator'
+import { Component, Vue, Emit } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -37,12 +37,6 @@ import { getRandomBetween } from '@/utils/math'
   },
 })
 export default class Index extends Vue {
-  @Prop()
-  innerWidth!: number
-
-  @Prop()
-  innerHeight!: number
-
   @Emit()
   init(): void {
     gsap.utils.toArray('.bubble').forEach((bubble, i) => {
