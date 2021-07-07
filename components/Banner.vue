@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative w-full h-screen bg-fixed bg-cover bg-no-repeat bg-center"
+    class="relative w-full h-screen bg-cover bg-no-repeat bg-center lg:bg-fixed"
     :style="{ backgroundImage: `url(${bannerImage})` }"
   >
     <div
@@ -58,6 +58,7 @@ export default class Banner extends Vue {}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0.95;
   clip-path: polygon(
     0% 15%,
     15% 15%,

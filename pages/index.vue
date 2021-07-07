@@ -3,16 +3,16 @@
     <!-- bubble -->
     <Bubble v-for="(item, index) in bubbleSizeList" :key="index" :size="item" />
     <!-- content -->
-    <Banner :ref="SectionNameNouns.banner" />
-    <LazyStory :ref="SectionNameNouns.story" :list="imageList" />
-    <LazyDetails :ref="SectionNameNouns.details" />
-    <LazyMap :ref="SectionNameNouns.map" />
-    <LazyEvent :ref="SectionNameNouns.event" />
+    <Banner :id="SectionNameNouns.banner" />
+    <LazyStory :id="SectionNameNouns.story" :list="imageList" />
+    <LazyDetails :id="SectionNameNouns.details" />
+    <LazyMap :id="SectionNameNouns.map" />
+    <LazyEvent :id="SectionNameNouns.event" />
   </main>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit, Prop } from 'vue-property-decorator'
+import { Component, Vue, Emit } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
@@ -37,12 +37,6 @@ import { getRandomBetween } from '@/utils/math'
   },
 })
 export default class Index extends Vue {
-  @Prop()
-  innerWidth!: number
-
-  @Prop()
-  innerHeight!: number
-
   @Emit()
   init(): void {
     gsap.utils.toArray('.bubble').forEach((bubble, i) => {

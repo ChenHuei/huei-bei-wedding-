@@ -1,15 +1,38 @@
 <template>
   <section
-    class="w-full h-auto p-12 pb-24 flex justify-center bg-white lg:p-16 lg:pb-32"
+    class="
+      w-full
+      h-auto
+      p-12
+      pb-24
+      flex
+      justify-center
+      bg-white
+      lg:p-16
+      lg:pb-32
+    "
   >
     <div class="w-full max-w-screen-lg flex flex-col items-center">
       <div
         ref="outer"
-        class="outer mb-16 border-b border-primary text-center overflow-hidden md:mb-16 lg:mb-20"
+        class="
+          outer
+          mb-16
+          border-b border-primary
+          text-center
+          overflow-hidden
+          md:mb-16
+          lg:mb-20
+        "
       >
         <h1
           ref="inner"
-          class="relative text-3xl text-primary font-bold font-custom md:text-4xl"
+          class="
+            relative
+            text-3xl text-primary
+            font-bold font-custom
+            md:text-4xl
+          "
         >
           {{ title }}
         </h1>
@@ -52,11 +75,11 @@ export default class BasicSection extends Vue {
         .on('enter', () => {
           this.enter()
 
-          gsap.from(this.$refs.outer, {
+          gsap.from(this.$refs.outer as gsap.TweenTarget, {
             duration: 0.25,
             scaleX: 0,
           })
-          gsap.from(this.$refs.inner, {
+          gsap.from(this.$refs.inner as gsap.TweenTarget, {
             duration: 0.65,
             yPercent: 100,
           })

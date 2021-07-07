@@ -189,6 +189,8 @@ export default {
         },
       },
     ],
+    // https://www.npmjs.com/package/vue-scrollto
+    'vue-scrollto/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

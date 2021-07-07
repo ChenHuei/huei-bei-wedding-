@@ -1,13 +1,29 @@
 <template>
-  <BasicSection v-bind="information" @enter="init">
+  <BasicSection id="story" v-bind="information" @enter="init">
     <div
       v-if="isInit"
-      class="w-full flex flex-col justify-between items-center -mb-10 lg:flex-row lg:mb-0"
+      class="
+        w-full
+        flex flex-col
+        justify-between
+        items-center
+        -mb-10
+        lg:flex-row
+        lg:mb-0
+      "
     >
       <div
         v-for="item in list"
         :key="item"
-        class="w-1/2 h-64 mb-10 bg-cover bg-no-repeat bg-center md:w-1/3 lg:w-1/4 lg:mb-0"
+        class="
+          w-1/2
+          h-64
+          mb-10
+          bg-cover bg-no-repeat bg-center
+          md:w-1/3
+          lg:w-1/4
+          lg:mb-0
+        "
         :style="{ backgroundImage: `url(${item})` }"
       ></div>
     </div>

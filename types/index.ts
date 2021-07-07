@@ -4,5 +4,5 @@ export interface BasicSection {
 
 export interface MenuItem {
   title: string
-  offsetTop: number
+  offsetTop?: number
 }

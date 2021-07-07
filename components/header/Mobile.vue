@@ -1,6 +1,15 @@
 <template>
   <div
-    class="header-mobile w-full h-full -right-full p-10 flex flex-col bg-white md:hidden"
+    class="
+      header-mobile
+      w-full
+      h-full
+      -right-full
+      p-10
+      flex flex-col
+      bg-white
+      md:hidden
+    "
   >
     <div class="header-mobile-title w-auto text-primary text-xl uppercase">
       {{ title }}
@@ -9,8 +18,8 @@
       <div
         v-for="item in list"
         :key="item.title"
+        v-scroll-to="{ el: `#${item.title}`, onStart: scroll }"
         class="py-4 my-4 text-primary text-center uppercase cursor-pointer"
-        @click="scroll(item.offsetTop)"
       >
         {{ item.title }}
       </div>
@@ -40,9 +49,7 @@ export default class HeaderMobile extends Vue {
   list!: MenuItem[]
 
   @Emit()
-  scroll(offset: number = 0): number {
-    return offset
-  }
+  scroll(): void {}
 }
 </script>
 

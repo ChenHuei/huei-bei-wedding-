@@ -1,16 +1,27 @@
 <template>
   <div
-    class="hidden w-full max-w-screen-lg justify-between items-center mx-auto md:flex"
+    class="
+      hidden
+      w-full
+      max-w-screen-lg
+      justify-between
+      items-center
+      mx-auto
+      md:flex
+    "
   >
-    <div class="w-auto text-primary uppercase cursor-pointer" @click="scroll()">
+    <div
+      v-scroll-to="'#banner'"
+      class="w-auto text-primary uppercase cursor-pointer"
+    >
       {{ title }}
     </div>
     <div class="w-auto flex -mr-4">
       <div
         v-for="item in list"
         :key="item.title"
+        v-scroll-to="{ el: `#${item.title}`, onStart: scroll }"
         class="mx-4 text-primary uppercase cursor-pointer"
-        @click="scroll(item.offsetTop)"
       >
         {{ item.title }}
       </div>
@@ -40,8 +51,6 @@ export default class HeaderDesktop extends Vue {
   list!: MenuItem[]
 
   @Emit()
-  scroll(offset: number = 0): number {
-    return offset
-  }
+  scroll(): void {}
 }
 </script>
