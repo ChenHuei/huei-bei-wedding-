@@ -7,9 +7,8 @@
         flex flex-col
         justify-between
         items-center
-        -mb-10
-        lg:flex-row
-        lg:mb-0
+        -mb-8
+        lg:flex-row lg:mb-0
       "
     >
       <div
@@ -18,11 +17,10 @@
         class="
           w-1/2
           h-64
-          mb-10
+          mb-8
           bg-cover bg-no-repeat bg-center
-          md:w-1/3
-          lg:w-1/4
-          lg:mb-0
+          md:w-1/3 md:mb-16
+          lg:w-1/4 lg:mb-0
         "
         :style="{ backgroundImage: `url(${item})` }"
       ></div>

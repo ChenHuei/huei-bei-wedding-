@@ -3,13 +3,13 @@
     class="
       w-full
       h-auto
-      p-12
-      pb-24
+      py-8
+      px-4
+      pb-12
       flex
       justify-center
       bg-white
-      lg:p-16
-      lg:pb-32
+      lg:p-16 lg:pb-24
     "
   >
     <div class="w-full max-w-screen-lg flex flex-col items-center">
@@ -17,21 +17,20 @@
         ref="outer"
         class="
           outer
-          mb-16
+          mb-12
           border-b border-primary
           text-center
           overflow-hidden
-          md:mb-16
-          lg:mb-20
+          lg:mb-24
         "
       >
         <h1
           ref="inner"
           class="
             relative
-            text-3xl text-primary
+            text-4xl text-primary
             font-bold font-custom
-            md:text-4xl
+            md:text-5xl
           "
         >
           {{ title }}

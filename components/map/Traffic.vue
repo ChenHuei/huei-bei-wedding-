@@ -1,5 +1,5 @@
 <template>
-  <div class="w-3/4 mb-4">
+  <div class="w-10/12 mb-4">
     <h1 class="mb-2 text-xl text-primary lg:text-2xl">
       {{ category }}
     </h1>

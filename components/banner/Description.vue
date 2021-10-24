@@ -1,7 +1,12 @@
 <template>
   <div class="banner-description flex flex-col justify-center items-center">
     <h1
-      class="mb-2 font-bold font-custom text-3xl text-primary text-center lg:text-4xl"
+      class="
+        mb-2
+        font-bold font-custom
+        text-3xl text-primary text-center
+        lg:text-4xl
+      "
       :class="titleClasses"
     >
       {{ title }}

@@ -7,7 +7,7 @@
       class="
         banner-content
         absolute
-        w-3/4
+        w-11/12
         h-auto
         p-16
         flex flex-col

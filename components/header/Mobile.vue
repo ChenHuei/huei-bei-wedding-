@@ -5,9 +5,10 @@
       w-full
       h-full
       -right-full
-      p-10
+      py-8
+      px-4
       flex flex-col
-      bg-white
+      bg-secondary
       md:hidden
     "
   >
@@ -19,7 +20,7 @@
         v-for="item in list"
         :key="item.title"
         v-scroll-to="{ el: `#${item.title}`, onStart: scroll }"
-        class="py-4 my-4 text-primary text-center uppercase cursor-pointer"
+        class="w-full py-8 text-primary text-center uppercase cursor-pointer"
       >
         {{ item.title }}
       </div>
