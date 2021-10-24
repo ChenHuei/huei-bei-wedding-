@@ -1,12 +1,27 @@
 <template>
   <div
-    class="header-hamburger transition-all duration-500 ease-in-out cursor-pointer"
+    class="
+      header-hamburger
+      transition-all
+      duration-500
+      ease-in-out
+      cursor-pointer
+    "
     @click="onValueChanged"
   >
     <p
       v-for="n in 3"
       :key="n"
-      class="header-hamburger-line absolute w-full bg-primary rounded transition-all duration-200 ease-in-out"
+      class="
+        header-hamburger-line
+        absolute
+        w-full
+        bg-primary
+        rounded
+        transition-all
+        duration-200
+        ease-in-out
+      "
       :class="{ open: value }"
     ></p>
   </div>

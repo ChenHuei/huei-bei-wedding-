@@ -13,7 +13,14 @@
       class="maps-iframe animate-pulse w-full mb-10 bg-gray-300 rounded"
     ></div>
     <a
-      class="map-link mb-10 text-lg text-primary text-center underline leading-8 lg:text-xl"
+      class="
+        map-link
+        mb-10
+        text-lg text-primary text-center
+        underline
+        leading-8
+        lg:text-xl
+      "
       rel="noopener"
       target="_blank"
       href="https://www.google.com.tw/maps/place/%E6%99%B6%E5%AE%B4%E6%9C%83%E9%A4%A8-%E6%B0%91%E7%94%9F%E9%A4%A8+%7C+%E5%8F%B0%E5%8C%97%E5%A9%9A%E5%AE%B4%E6%9C%83%E9%A4%A8+%7C+%E5%8F%B0%E5%8C%97%E5%A9%9A%E5%AE%B4%E5%A0%B4%E5%9C%B0/@25.0576333,121.5363191,17z/data=!3m1!4b1!4m5!3m4!1s0x3442abe1955a26c7:0xef585276efb6d0ef!8m2!3d25.0576285!4d121.5385078?hl=zh-TW"

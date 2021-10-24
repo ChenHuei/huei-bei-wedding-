@@ -1,9 +1,17 @@
 <template>
-  <div class="w-full flex font-bold leading-10">
-    <p class="details-description-time text-lg text-primary lg:text-xl">
-      {{ time }}
-    </p>
-    <p class="text-lg text-primary">{{ description }}</p>
+  <div
+    class="
+      w-1/2
+      flex
+      justify-between
+      font-bold
+      text-lg text-primary text-center
+      leading-10
+    "
+  >
+    <p class="lg:text-xl">{{ time }}</p>
+    <BasicLine v-if="isShowLine" class="hidden md:block" />
+    <p>{{ description }}</p>
   </div>
 </template>
 
@@ -24,12 +32,12 @@ export default class DetailsDescription extends Vue {
 
   @Prop()
   description!: string
+
+  @Prop()
+  index!: number
+
+  get isShowLine(): boolean {
+    return this.index === 1
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-.details-description-time {
-  transform: translateX(-200%);
-  margin-left: 50%;
-}
-</style>

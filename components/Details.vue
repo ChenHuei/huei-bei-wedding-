@@ -1,10 +1,14 @@
 <template>
   <BasicSection v-bind="information">
     <div class="w-full flex flex-col justify-center items-center">
-      <BasicLine class="absolute" />
       <DetailsLaurel :direction="Direction.LEFT" />
       <DetailsLaurel :direction="Direction.RIGHT" />
-      <DetailsDescription v-for="item in list" :key="item.time" v-bind="item" />
+      <DetailsDescription
+        v-for="(item, index) in list"
+        :key="item.time"
+        :index="index"
+        v-bind="item"
+      />
     </div>
     <DetailsCalendar v-bind="calendar" />
   </BasicSection>

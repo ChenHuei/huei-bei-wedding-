@@ -10,10 +10,7 @@
       duration-200
       ease-in-out
       z-20
-      md:left-0
-      md:h-auto
-      md:p-4
-      md:z-10
+      md:left-0 md:h-auto md:px-8 md:my-4 md:z-10
     "
     :class="{ open: isOpenMobileMenu }"
   >
@@ -63,8 +60,8 @@ export default class Header extends Vue {
   }
 
   &-hamburger {
-    top: 2.5rem;
-    right: 2.5rem;
+    top: 2rem;
+    right: 1rem;
   }
 }
 </style>

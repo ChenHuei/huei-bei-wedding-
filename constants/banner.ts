@@ -10,15 +10,12 @@ export const BANNER_CONTENT: (Component | BannerDescriptionComponent)[] = [
   },
   {
     component: 'BasicLine',
-    class: ['my-10'],
+    class: ['my-2'],
   },
   {
     component: 'BannerDescription',
     title: 'Sat, December, 11th, 2021',
-    description: [
-      'At 晶宴會館 - 民生館',
-      '(台北市中山區民生東路三段 8 號 B2)',
-    ],
+    description: ['At 晶宴會館 - 民生館', '(台北市中山區民生東路三段 8 號 B2)'],
     titleClasses: [],
   },
 ]

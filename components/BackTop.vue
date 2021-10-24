@@ -17,8 +17,7 @@
         rotate-180
         cursor-pointer
         duration-500
-        md:w-12
-        md:h-12
+        md:w-12 md:h-12
       "
     >
       <ArrowDownSvg class="w-4 h-4 md:w-6 md:h-6" />

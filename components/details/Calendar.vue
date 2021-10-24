@@ -1,6 +1,6 @@
 <template>
   <a
-    class="mt-16 text-lg text-primary text-center underline"
+    class="mt-16 text-primary text-center underline lg:text-lg"
     style="white-space: nowrap"
     rel="noopener"
     target="_blank"

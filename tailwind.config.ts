@@ -25,6 +25,11 @@ module.exports = {
         secondary: '#fcf6e6',
         tertiary: '#faa7bc',
       },
+      backgroundOpacity: {
+        '10': '0.1',
+        '20': '0.2',
+        '95': '0.95',
+      },
     },
   },
   variants: {

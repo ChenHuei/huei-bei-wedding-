@@ -7,7 +7,7 @@
       class="
         banner-content
         absolute
-        w-3/4
+        w-11/12
         h-auto
         p-16
         flex flex-col
@@ -43,7 +43,9 @@ import { BANNER_CONTENT } from '@/constants/banner'
 @Component({
   data() {
     return {
-      bannerImage: require('@/assets/images/Banner.jpg'),
+      bannerImage: require(`@/assets/images/Banner.${
+        (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+      }`),
       list: BANNER_CONTENT,
     }
   },
