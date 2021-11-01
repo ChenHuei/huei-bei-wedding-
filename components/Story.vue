@@ -16,17 +16,13 @@
       "
       @click.self="closeDialog"
     >
-      <img
-        class="m-auto"
-        :src="list[currentImageIndex]"
-        :style="{ maxWidth: '50%', maxHeight: '90%', 'user-select': 'none' }"
-      />
+      <img class="story-dialog-image m-auto" :src="list[currentImageIndex]" />
       <ArrowDownSvg
         v-show="currentImageIndex > 0"
         class="story-dialog-arrow absolute top-1/2 w-12 h-12 cursor-pointer"
         :style="{
           left: '25%',
-          transform: 'translate(-200%, -50%) rotate(90deg)',
+          transform: 'translate(-200%, 0) rotate(90deg)',
         }"
         @click="setCurrentImageIndex(currentImageIndex - 1)"
       />
@@ -35,19 +31,20 @@
         class="story-dialog-arrow absolute top-1/2 w-12 h-12 cursor-pointer"
         :style="{
           right: '25%',
-          transform: 'translate(200%, -50%) rotate(-90deg)',
+          transform: 'translate(200%, 0) rotate(-90deg)',
         }"
         @click="setCurrentImageIndex(currentImageIndex + 1)"
       />
     </div>
 
-    <div class="w-full h-64 overflow-hidden">
-      <div class="h-full flex justify-between items-center">
+    <div class="w-full h-96 overflow-hidden">
+      <div class="story-list h-full flex items-center overflow-x-auto pb-4">
         <div
           v-for="(item, index) in list"
           :key="item"
           :style="{ backgroundImage: `url(${item})`, flex: '0 0 auto' }"
           class="
+            story-item
             w-full
             md:w-calc((100%-2rem)/2)
             lg:w-calc((100%-4rem)/3)
@@ -114,12 +111,45 @@ export default class Story extends Vue {
 <style lang="scss" scoped>
 .story {
   &-dialog {
+    &-image {
+      max-width: 75%;
+      max-height: 90%;
+      user-select: none;
+
+      @media (min-width: 1024px) {
+        max-width: 50%;
+      }
+    }
     &-arrow {
       transition: 0.5s;
 
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+
+  &-list {
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      background-color: transparent;
+
+      &-track,
+      &-track-piece {
+        background-color: transparent;
+      }
+
+      &-thumb {
+        border-radius: 4px;
+        background-color: #fcf6e6;
+      }
+    }
+  }
+
+  &-item {
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

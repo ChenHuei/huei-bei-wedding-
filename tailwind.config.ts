@@ -23,6 +23,8 @@ module.exports = {
       },
       spacing: {
         68: '17rem',
+        96: '24rem',
+        128: '32rem',
         'calc((100%-2rem)/2)': 'calc((100% - 2rem) / 2)',
         'calc((100%-4rem)/3)': 'calc((100% - 4rem) / 3)',
       },
@@ -34,6 +36,10 @@ module.exports = {
       backgroundOpacity: {
         '10': '0.1',
         '20': '0.2',
+        '70': '0.7',
+        '95': '0.95',
+      },
+      textOpacity: {
         '95': '0.95',
       },
       rotate: {

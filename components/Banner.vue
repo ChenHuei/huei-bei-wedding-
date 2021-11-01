@@ -9,11 +9,12 @@
         absolute
         w-11/12
         h-auto
-        p-16
+        p-8
         flex flex-col
         justify-center
         items-center
-        bg-white
+        bg-white bg-opacity-70
+        rounded
         lg:w-1/2
         md:p-20
       "
@@ -58,8 +59,8 @@ export default class Banner extends Vue {}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.95;
-  clip-path: polygon(
+
+  /* clip-path: polygon(
     0% 15%,
     15% 15%,
     15% 0%,
@@ -72,6 +73,6 @@ export default class Banner extends Vue {}
     15% 100%,
     15% 85%,
     0% 85%
-  );
+  ); */
 }
 </style>

@@ -63,9 +63,7 @@ export default class BasicSection extends Vue {
   mounted(): void {
     if (process.client) {
       const ScrollMagic = require('scrollmagic')
-
       const controller = new ScrollMagic.Controller()
-
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         offset: 0,
@@ -73,7 +71,6 @@ export default class BasicSection extends Vue {
       })
         .on('enter', () => {
           this.enter()
-
           gsap.from(this.$refs.outer as gsap.TweenTarget, {
             duration: 0.25,
             scaleX: 0,
