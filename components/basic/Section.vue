@@ -12,7 +12,7 @@
       lg:p-16 lg:pb-24
     "
   >
-    <div class="w-full max-w-screen-lg flex flex-col items-center">
+    <div class="relative w-full max-w-screen-lg flex flex-col items-center">
       <div
         ref="outer"
         class="

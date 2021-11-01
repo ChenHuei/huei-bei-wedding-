@@ -32,6 +32,11 @@ import { getRandomBetween } from '@/utils/math'
 @Component({
   data() {
     return {
+      imageList: [...Array(3).keys()].map((item) =>
+        require(`@/assets/images/story/${item + 1}.${
+          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+        }`)
+      ),
       SectionNameNouns,
     }
   },
@@ -63,14 +68,12 @@ export default class Index extends Vue {
     })
   }
 
-  imageList: string[] = []
-
   bubbleSizeList: number[] = []
 
   // mounted
 
   async mounted(): Promise<void> {
-    await Promise.all([this.setBubbleSizeList(), this.setImageList()])
+    await Promise.all([this.setBubbleSizeList()])
 
     this.$nextTick(() => {
       this.init()
@@ -79,22 +82,22 @@ export default class Index extends Vue {
 
   // methods
 
-  async setImageList(): Promise<void> {
-    const list = await this.$fire.storage
-      .ref()
-      .list({ maxResults: 3 })
-      .then((result) =>
-        result.items
-          .filter((item) => {
-            const [, type] = item.name.split('.')
-            return type === 'mov' ? '' : item
-          })
-          .filter(Boolean)
-          .map((item) => item.getDownloadURL())
-      )
+  // async setImageList(): Promise<void> {
+  //   const list = await this.$fire.storage
+  //     .ref()
+  //     .list({ maxResults: 3 })
+  //     .then((result) =>
+  //       result.items
+  //         .filter((item) => {
+  //           const [, type] = item.name.split('.')
+  //           return type === 'mov' ? '' : item
+  //         })
+  //         .filter(Boolean)
+  //         .map((item) => item.getDownloadURL())
+  //     )
 
-    this.imageList = await Promise.all(list).then((url) => url)
-  }
+  //   this.imageList = await Promise.all(list).then((url) => url)
+  // }
 
   setBubbleSizeList(): Promise<void> {
     const bubbleNumbers = Math.ceil(window.innerWidth / 100)
