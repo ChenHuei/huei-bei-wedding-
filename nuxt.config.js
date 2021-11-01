@@ -139,6 +139,7 @@ export default {
   plugins: [
     { src: '@/plugins/scrollmagic', ssr: false },
     { src: '@/plugins/detect-webp' },
+    { src: './plugins/vue-carousel.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
