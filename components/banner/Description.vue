@@ -14,7 +14,7 @@
     <span
       v-for="item in description"
       :key="item"
-      class="text-sm text-gray-500 text-center lg:text-base"
+      class="text-sm text-black text-center text-opacity-95 lg:text-base"
     >
       {{ item }}
     </span>

@@ -32,6 +32,11 @@ import { getRandomBetween } from '@/utils/math'
 @Component({
   data() {
     return {
+      imageList: [...Array(6).keys()].map((item) =>
+        require(`@/assets/images/story/${item + 1}.${
+          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+        }`)
+      ),
       SectionNameNouns,
     }
   },
@@ -70,7 +75,7 @@ export default class Index extends Vue {
   // mounted
 
   async mounted(): Promise<void> {
-    await Promise.all([this.setBubbleSizeList(), this.setImageList()])
+    await Promise.all([this.setBubbleSizeList()])
 
     this.$nextTick(() => {
       this.init()

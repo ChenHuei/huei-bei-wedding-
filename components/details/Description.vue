@@ -7,6 +7,7 @@
       font-bold
       text-lg text-primary text-center
       leading-10
+      lg:w-1/4
     "
   >
     <p class="lg:text-xl">{{ time }}</p>

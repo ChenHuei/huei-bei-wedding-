@@ -12,7 +12,7 @@
       lg:p-16 lg:pb-24
     "
   >
-    <div class="w-full max-w-screen-lg flex flex-col items-center">
+    <div class="relative w-full max-w-screen-lg flex flex-col items-center">
       <div
         ref="outer"
         class="
@@ -63,9 +63,7 @@ export default class BasicSection extends Vue {
   mounted(): void {
     if (process.client) {
       const ScrollMagic = require('scrollmagic')
-
       const controller = new ScrollMagic.Controller()
-
       new ScrollMagic.Scene({
         triggerElement: this.$el,
         offset: 0,
@@ -73,7 +71,6 @@ export default class BasicSection extends Vue {
       })
         .on('enter', () => {
           this.enter()
-
           gsap.from(this.$refs.outer as gsap.TweenTarget, {
             duration: 0.25,
             scaleX: 0,
