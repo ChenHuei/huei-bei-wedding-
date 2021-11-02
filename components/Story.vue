@@ -42,7 +42,8 @@
         <div
           v-for="(item, index) in list"
           :key="item"
-          :style="{ backgroundImage: `url(${item})`, flex: '0 0 auto' }"
+          :lazy-background="item"
+          :style="{ flex: '0 0 auto' }"
           class="
             story-item
             w-full

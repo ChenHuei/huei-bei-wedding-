@@ -32,11 +32,11 @@ import { getRandomBetween } from '@/utils/math'
 @Component({
   data() {
     return {
-      imageList: [...Array(6).keys()].map((item) =>
-        require(`@/assets/images/story/${item + 1}.${
-          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-        }`)
-      ),
+      // imageList: [...Array(6).keys()].map((item) =>
+      //   require(`@/assets/images/story/${item + 1}.${
+      //     (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+      //   }`)
+      // ),
       SectionNameNouns,
     }
   },
@@ -75,7 +75,7 @@ export default class Index extends Vue {
   // mounted
 
   async mounted(): Promise<void> {
-    await Promise.all([this.setBubbleSizeList()])
+    await Promise.all([this.setBubbleSizeList(), this.setImageList()])
 
     this.$nextTick(() => {
       this.init()
@@ -87,7 +87,7 @@ export default class Index extends Vue {
   async setImageList(): Promise<void> {
     const list = await this.$fire.storage
       .ref()
-      .list({ maxResults: 3 })
+      .list({ maxResults: 6 })
       .then((result) =>
         result.items
           .filter((item) => {
