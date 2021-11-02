@@ -62,7 +62,7 @@ export const MAP_TRAFFIC: {
     content: [
       {
         title: '',
-        description: ['南山大樓 B5-B6 停車場 (免費)'],
+        description: ['南山大樓 B5-B6 停車場 (3 小時免費)'],
       },
     ],
   },
