@@ -15,9 +15,10 @@
         items-center
         bg-white bg-opacity-70
         rounded
-        lg:w-1/2
-        md:p-20
+        md:w-3/5 md:p-20
+        lg:w-full
       "
+      :style="{ maxWidth: '500px' }"
     >
       <component
         :is="item.component"
