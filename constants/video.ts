@@ -1,5 +1,5 @@
-export const SPEED_BASE = 5
-export const SIZES_BASE = 10
+export const SPEED_BASE = 20
+export const SIZES_BASE = 30
 
 export const COLOR_LIST: string[] = [
   '#f9f7f7',
