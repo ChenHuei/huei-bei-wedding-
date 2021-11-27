@@ -23,6 +23,9 @@ export default {
         name: 'description',
         content: 'huei & bei wedding information',
       },
+      {
+        name:"google-site-verification", content:"tPO6j2SJmwqKlfbRxK1Ax2vkjb_cLa7rL5QRNj-9AQI"
+      },
       // meta
       { property: 'og:title', content: 'huei & bei weeding' },
       { property: 'og:description', content: 'huei & bei 的婚禮資訊' },
