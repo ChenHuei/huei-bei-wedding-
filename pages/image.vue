@@ -110,7 +110,7 @@ export default class App extends Vue {
     textEl.style.display = 'flex'
     textEl.style.alignItems = 'center'
 
-    textEl.style.fontSize = `${getRandomInteger(SIZES_BASE, SIZES_BASE)}px`
+    textEl.style.fontSize = '32px'
     textEl.style.fontWeight = '900'
     textEl.style.whiteSpace = 'nowrap'
     textEl.style.color = COLOR_LIST[getRandomInteger(COLOR_LIST.length - 1)]
