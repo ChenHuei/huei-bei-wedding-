@@ -86,8 +86,8 @@ export default class App extends Vue {
   getUserElement(url: string): HTMLDivElement {
     const userEl = document.createElement('div')
 
-    userEl.style.width = '32px'
-    userEl.style.height = '32px'
+    userEl.style.width = '40px'
+    userEl.style.height = '40px'
     userEl.style.borderRadius = '50%'
     userEl.style.backgroundImage = `url(${url})`
     userEl.style.backgroundSize = 'cover'
