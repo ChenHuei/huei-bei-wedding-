@@ -12,6 +12,7 @@
           <div class="w-screen h-screen flex justify-center items-center">
             <img
               class="m-auto"
+              v-lazy-load
               :style="{ maxWidth: '100%', maxHeight: '100%' }"
               :src="item"
             />
@@ -27,7 +28,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
-import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
+import { SPEED_BASE, COLOR_LIST } from '@/constants/video'
 
 // types`
 import { Message } from '@/types/video'
