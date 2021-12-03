@@ -40,11 +40,13 @@ import { getRandomInteger } from '@/utils/math'
   layout: 'empty',
   data() {
     return {
-      imageList: [...Array(6).keys()].map((item) =>
-        require(`@/assets/images/story/${item + 1}.${
-          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-        }`)
-      ),
+      imageList: [...Array(40).keys()]
+        .sort(() => Math.random() - 0.5)
+        .map((item) =>
+          require(`@/assets/images/carousel/${item + 1}.${
+            (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+          }`)
+        ),
     }
   },
 })
