@@ -14,7 +14,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { gsap } from 'gsap'
 
 // constants
-import { SPEED_BASE, SIZES_BASE, COLOR_LIST } from '@/constants/video'
+import { SPEED_BASE, COLOR_LIST } from '@/constants/video'
 
 // types
 import { Message } from '@/types/video'
@@ -25,7 +25,7 @@ import { getRandomInteger } from '@/utils/math'
 @Component({
   layout: 'empty',
 })
-export default class App extends Vue {
+export default class Video extends Vue {
   mounted(): void {
     const eventSource = new EventSource(
       `https://wedding-line-bot.herokuapp.com/messages`

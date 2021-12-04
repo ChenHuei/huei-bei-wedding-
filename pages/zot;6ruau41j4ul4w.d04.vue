@@ -39,7 +39,7 @@ import { getRandomInteger } from '@/utils/math'
 @Component({
   layout: 'empty',
 })
-export default class App extends Vue {
+export default class Image extends Vue {
   imageList: string[] = Array(40).fill('')
 
   async mounted(): Promise<void> {
