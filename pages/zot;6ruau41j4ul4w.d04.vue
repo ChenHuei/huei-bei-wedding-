@@ -39,7 +39,7 @@ import { getRandomInteger } from '@/utils/math'
 @Component({
   layout: 'empty',
 })
-export default class Image extends Vue {
+export default class ImageCarousel extends Vue {
   imageList: string[] = Array(40).fill('')
 
   async mounted(): Promise<void> {
@@ -55,7 +55,9 @@ export default class Image extends Vue {
           .filter(Boolean)
           .map((item) => item.getDownloadURL())
       )
-    this.imageList = await Promise.all(list).then((url) => url)
+    const urls: string[] = await Promise.all(list).then((url) => url)
+
+    this.imageList = [...urls].sort(() => Math.random() - 0.5)
 
     const eventSource = new EventSource(
       `https://wedding-line-bot.herokuapp.com/messages`
