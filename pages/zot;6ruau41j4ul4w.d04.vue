@@ -38,20 +38,25 @@ import { getRandomInteger } from '@/utils/math'
 
 @Component({
   layout: 'empty',
-  data() {
-    return {
-      imageList: [...Array(40).keys()]
-        .sort(() => Math.random() - 0.5)
-        .map((item) =>
-          require(`@/assets/images/carousel/${item + 1}.${
-            (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-          }`)
-        ),
-    }
-  },
 })
 export default class App extends Vue {
-  mounted(): void {
+  imageList: string[] = Array(40).fill('')
+
+  async mounted(): Promise<void> {
+    const list = await this.$fire.storage
+      .ref('/carousel')
+      .list()
+      .then((result) =>
+        result.items
+          .filter((item) => {
+            const [, type] = item.name.split('.')
+            return type === 'mov' ? '' : item
+          })
+          .filter(Boolean)
+          .map((item) => item.getDownloadURL())
+      )
+    this.imageList = await Promise.all(list).then((url) => url)
+
     const eventSource = new EventSource(
       `https://wedding-line-bot.herokuapp.com/messages`
     )
