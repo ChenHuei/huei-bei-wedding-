@@ -1,25 +1,19 @@
 <template>
-  <div class="relative w-screen h-screen bg-black">
-    <client-only>
-      <carousel
-        :per-page="1"
-        :autoplay="true"
-        :autoplay-timeout="5000"
-        :loop="true"
-        :pagination-enabled="false"
+  <div class="w-screen h-screen bg-black overflow-hidden">
+    <div class="flex justify-center items-center" :style="wrapperStyle">
+      <div
+        v-for="item in imageList"
+        :key="item"
+        class="w-screen h-screen flex justify-center items-center"
       >
-        <slide v-for="item in imageList" :key="item">
-          <div class="w-screen h-screen flex justify-center items-center">
-            <img
-              class="m-auto"
-              v-lazy-load
-              :style="{ maxWidth: '100%', maxHeight: '100%' }"
-              :src="item"
-            />
-          </div>
-        </slide>
-      </carousel>
-    </client-only>
+        <img
+          class="m-auto"
+          v-lazy-load
+          :style="{ maxWidth: '100%', maxHeight: '100%' }"
+          :src="item"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,20 +30,43 @@ import { Message } from '@/types/video'
 // utils
 import { getRandomInteger } from '@/utils/math'
 
+const IMAGE_LENGTH = 40
+
 @Component({
   layout: 'empty',
   data() {
     return {
-      imageList: [...Array(40).keys()].map((item) =>
-        require(`@/assets/images/carousel/${item + 1}.${
-          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-        }`)
-      ),
+      imageList: [...Array(IMAGE_LENGTH).keys()]
+        .sort(() => Math.random() - 0.5)
+        .map((item) =>
+          require(`@/assets/images/carousel/${item + 1}.${
+            (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+          }`)
+        ),
     }
   },
 })
 export default class ImageCarousel extends Vue {
+  index = 0
+
+  get wrapperStyle(): Object {
+    return {
+      width: `${IMAGE_LENGTH * 100}%`,
+      transform: `translateX(-${this.index * (100 / IMAGE_LENGTH)}%)`,
+      transition: 'transform 0.5s',
+      willChange: 'transform',
+    }
+  }
+
   mounted(): void {
+    const id = setInterval(() => {
+      this.index = this.index + 1 >= IMAGE_LENGTH ? 0 : this.index + 1
+    }, 5000)
+
+    this.$once('hook:beforeDestroy', (): void => {
+      clearInterval(id)
+    })
+
     const eventSource = new EventSource(
       `https://wedding-line-bot.herokuapp.com/messages`
     )
@@ -87,8 +104,8 @@ export default class ImageCarousel extends Vue {
   getUserElement(url: string): HTMLDivElement {
     const userEl = document.createElement('div')
 
-    userEl.style.width = '40px'
-    userEl.style.height = '40px'
+    userEl.style.width = 'px'
+    userEl.style.height = 'px'
     userEl.style.borderRadius = '50%'
     userEl.style.backgroundImage = `url(${url})`
     userEl.style.backgroundSize = 'cover'

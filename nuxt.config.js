@@ -24,7 +24,8 @@ export default {
         content: 'huei & bei wedding information',
       },
       {
-        name:"google-site-verification", content:"tPO6j2SJmwqKlfbRxK1Ax2vkjb_cLa7rL5QRNj-9AQI"
+        name: 'google-site-verification',
+        content: 'tPO6j2SJmwqKlfbRxK1Ax2vkjb_cLa7rL5QRNj-9AQI',
       },
       // meta
       { property: 'og:title', content: 'huei & bei weeding' },
@@ -142,7 +143,6 @@ export default {
   plugins: [
     { src: '@/plugins/scrollmagic', ssr: false },
     { src: '@/plugins/detect-webp' },
-    { src: './plugins/vue-carousel.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
