@@ -104,8 +104,8 @@ export default class ImageCarousel extends Vue {
   getUserElement(url: string): HTMLDivElement {
     const userEl = document.createElement('div')
 
-    userEl.style.width = 'px'
-    userEl.style.height = 'px'
+    userEl.style.width = '40px'
+    userEl.style.height = '40px'
     userEl.style.borderRadius = '50%'
     userEl.style.backgroundImage = `url(${url})`
     userEl.style.backgroundSize = 'cover'
