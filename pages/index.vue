@@ -32,11 +32,11 @@ import { getRandomBetween } from '@/utils/math'
 @Component({
   data() {
     return {
-      // imageList: [...Array(6).keys()].map((item) =>
-      //   require(`@/assets/images/story/${item + 1}.${
-      //     (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
-      //   }`)
-      // ),
+      imageList: [...Array(6).keys()].map((item) =>
+        require(`@/assets/images/story/${item + 1}.${
+          (this as Vue & { $isWebp: boolean }).$isWebp ? 'webp' : 'jpg'
+        }`)
+      ),
       SectionNameNouns,
     }
   },
